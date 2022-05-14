@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewCellViewModel: HomeViewCellViewModelType {
+class HomeCellViewModel: HomeCellViewModelType {
     
     private var profile: Profile
     

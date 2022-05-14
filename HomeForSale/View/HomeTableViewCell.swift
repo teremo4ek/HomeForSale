@@ -12,7 +12,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     
-    weak var viewModel: HomeViewCellViewModelType? {
+    weak var viewModel: HomeCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
             fullNameLabel.text = viewModel.fullName

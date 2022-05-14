@@ -20,9 +20,9 @@ class MainTableViewModel : MainTableViewModelType {
         return profiles.count
     }
     
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> HomeViewCellViewModelType? {
+    func cellViewModel(forIndexPath indexPath: IndexPath) -> HomeCellViewModelType? {
         let profile = profiles[indexPath.row]
-        return HomeViewCellViewModel(profile: profile)
+        return HomeCellViewModel(profile: profile)
     }
     
     func viewModelForSelectedRow() -> HomeDetailViewModelType? {

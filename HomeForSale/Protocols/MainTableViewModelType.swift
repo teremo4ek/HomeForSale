@@ -9,7 +9,7 @@ import Foundation
 
 protocol MainTableViewModelType {
     func numberOfRows() -> Int
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> HomeViewCellViewModelType?
+    func cellViewModel(forIndexPath indexPath: IndexPath) -> HomeCellViewModelType?
     
     func viewModelForSelectedRow() -> HomeDetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath)
