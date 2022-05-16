@@ -23,6 +23,7 @@
 		1A0FAA51282FF38E00D9F8F1 /* MainTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAA50282FF38E00D9F8F1 /* MainTableViewModel.swift */; };
 		1A0FAA53282FF3B700D9F8F1 /* HomeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAA52282FF3B700D9F8F1 /* HomeDetailViewModel.swift */; };
 		1A0FAA55282FF3E600D9F8F1 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAA54282FF3E600D9F8F1 /* HomeCellViewModel.swift */; };
+		1A0FAA57283262F100D9F8F1 /* TypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAA56283262F100D9F8F1 /* TypeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		1A0FAA50282FF38E00D9F8F1 /* MainTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewModel.swift; sourceTree = "<group>"; };
 		1A0FAA52282FF3B700D9F8F1 /* HomeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewModel.swift; sourceTree = "<group>"; };
 		1A0FAA54282FF3E600D9F8F1 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		1A0FAA56283262F100D9F8F1 /* TypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0FAA3C282FE0C200D9F8F1 /* Home.swift */,
+				1A0FAA56283262F100D9F8F1 /* TypeCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0FAA55282FF3E600D9F8F1 /* HomeCellViewModel.swift in Sources */,
+				1A0FAA57283262F100D9F8F1 /* TypeCell.swift in Sources */,
 				1A0FAA3A282FD81300D9F8F1 /* MainTableViewController.swift in Sources */,
 				1A0FAA26282FB53200D9F8F1 /* AppDelegate.swift in Sources */,
 				1A0FAA48282FEB3600D9F8F1 /* MainTableViewModelType.swift in Sources */,

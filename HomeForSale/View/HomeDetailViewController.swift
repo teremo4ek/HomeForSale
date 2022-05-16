@@ -27,9 +27,9 @@ class HomeDetailViewController: UIViewController {
             self.textLabel.text = string
         }
         
-        delay(delay: 5) { [unowned self] in
-            self.viewModel?.age.value = "some new value"
-        }
+        //delay(delay: 5) { [unowned self] in
+        //    self.viewModel?.age.value = "some new value"
+        //}
     }
     
     private func delay(delay: Double, closure: @escaping () -> ()) {

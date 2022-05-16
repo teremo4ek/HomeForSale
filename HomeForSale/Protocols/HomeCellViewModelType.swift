@@ -8,6 +8,11 @@
 import Foundation
 
 protocol HomeCellViewModelType: AnyObject {
-    var id: String { get }
-    var area: String { get }
+    var typeCell: TypeCell { get }
+    var address: String { get }
+    var price: Int { get }
+    var livingArea: Int { get }
+    var numberOfRooms: Int { get }
+    var municipalityArea: String { get }
+    var imageOfHouse: String { get }
 }

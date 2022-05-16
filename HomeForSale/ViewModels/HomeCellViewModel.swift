@@ -11,15 +11,37 @@ class HomeCellViewModel: HomeCellViewModelType {
     
     private var home: Home
     
-    var id: String {
-        return home.id + " -> " + home.type
-    }
-    
-    var area: String {
-        return String(describing: home.area)
-    }
-    
     init(home: Home) {
         self.home = home
     }
+    
+    var typeCell: TypeCell {
+        return .Property
+    }
+    
+    var address: String {
+        return home.streetAddress ?? "Default"
+    }
+    
+    var price: Int {
+        return home.askingPrice ?? 0
+    }
+    
+    var livingArea: Int {
+        return home.livingArea ?? 0
+    }
+    
+    var numberOfRooms: Int {
+        return home.numberOfRooms ?? 0
+    }
+    
+    
+    var municipalityArea: String {
+        return  String("\(home.municipality), \(home.area)")
+    }
+    
+    var imageOfHouse: String{
+        return home.image
+    }
+    
 }
