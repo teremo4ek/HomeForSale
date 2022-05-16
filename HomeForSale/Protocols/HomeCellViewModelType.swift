@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol HomeCellViewModelType: class {
-    var fullName: String { get }
-    var age: String { get }
+protocol HomeCellViewModelType: AnyObject {
+    var id: String { get }
+    var area: String { get }
 }

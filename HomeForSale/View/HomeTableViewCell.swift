@@ -15,8 +15,8 @@ class HomeTableViewCell: UITableViewCell {
     weak var viewModel: HomeCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
-            fullNameLabel.text = viewModel.fullName
-            ageLabel.text = viewModel.age
+            fullNameLabel.text = viewModel.id
+            ageLabel.text = viewModel.area
         }
     }
 }

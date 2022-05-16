@@ -10,24 +10,25 @@ import Foundation
 class MainTableViewModel : MainTableViewModelType {
     private var selectedIndexPath: IndexPath?
     
-    var profiles = [
-        Profile(name: "John", secondName: "Smith", age: 33),
-        Profile(name: "Max", secondName: "Kolby", age: 21),
-        Profile(name: "Mark", secondName: "Salmon", age: 55)
+    
+    var homeList = [
+        Home(type: "firstType", id: "id0", askingPrice: nil, municipality: nil, area: "area0", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
+        Home(type: "secondType", id: "id1", askingPrice: nil, municipality: nil, area: "area1", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
+        Home(type: "thirdType", id: "id2", askingPrice: nil, municipality: nil, area: "area2", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil)
     ]
     
     func numberOfRows() -> Int {
-        return profiles.count
+        return homeList.count
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> HomeCellViewModelType? {
-        let profile = profiles[indexPath.row]
-        return HomeCellViewModel(profile: profile)
+        let home = homeList[indexPath.row]
+        return HomeCellViewModel(home: home)
     }
     
     func viewModelForSelectedRow() -> HomeDetailViewModelType? {
         guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return HomeDetailViewModel(profile: profiles[selectedIndexPath.row])
+        return HomeDetailViewModel(home: homeList[selectedIndexPath.row])
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {

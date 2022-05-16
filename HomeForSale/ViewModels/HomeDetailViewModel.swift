@@ -9,15 +9,15 @@ import Foundation
 
 class HomeDetailViewModel: HomeDetailViewModelType {
     
-    private var profile: Profile
+    private var home: Home
     
     var description: String {
-        return String(describing: "\(profile.name) \(profile.secondName) is \(profile.age) old!")
+        return String(describing: "\(home.id) \(home.area) !!!!")
     }
     
     var age: Box<String?> = Box(nil)
     
-    init(profile: Profile) {
-        self.profile = profile
+    init(home: Home) {
+        self.home = home
     }
 }

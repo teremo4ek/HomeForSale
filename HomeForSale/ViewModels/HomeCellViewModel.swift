@@ -9,17 +9,17 @@ import Foundation
 
 class HomeCellViewModel: HomeCellViewModelType {
     
-    private var profile: Profile
+    private var home: Home
     
-    var fullName: String {
-        return profile.name + " " + profile.secondName
+    var id: String {
+        return home.id + " -> " + home.type
     }
     
-    var age: String {
-        return String(describing: profile.age)
+    var area: String {
+        return String(describing: home.area)
     }
     
-    init(profile: Profile) {
-        self.profile = profile
+    init(home: Home) {
+        self.home = home
     }
 }
