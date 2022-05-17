@@ -252,6 +252,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vCl-dQ-8Kp"/>
+                    <connections>
+                        <outlet property="askingPrice" destination="ffn-we-BCO" id="cdO-fE-Fwx"/>
+                        <outlet property="daysSincePublish" destination="jkR-7J-u9W" id="isV-Do-O4T"/>
+                        <outlet property="homeDescription" destination="lQb-vQ-q42" id="Cbg-fy-W54"/>
+                        <outlet property="livingArea" destination="pDu-Kx-gEc" id="jdb-7k-NiN"/>
+                        <outlet property="municipalityArea" destination="cxJ-15-JX2" id="dgI-bj-tEA"/>
+                        <outlet property="numberOfRooms" destination="gxr-9n-h2x" id="hIV-oC-oQt"/>
+                        <outlet property="patio" destination="Cu1-tY-jeK" id="5UI-VG-nVi"/>
+                        <outlet property="streetAddress" destination="OCf-Rn-xIh" id="lhe-Qi-bsN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gaz-QV-HEl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

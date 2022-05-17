@@ -11,12 +11,32 @@ class HomeDetailViewController: UIViewController {
     
     var viewModel: HomeDetailViewModelType?
 
-    //@IBOutlet weak var textLabel: UILabel!
+    @IBOutlet private weak var askingPrice: UILabel!
+    @IBOutlet private weak var municipalityArea: UILabel!
+    @IBOutlet private weak var daysSincePublish: UILabel!
+    @IBOutlet private weak var livingArea: UILabel!
+    @IBOutlet private weak var numberOfRooms: UILabel!
+    @IBOutlet private weak var streetAddress: UILabel!
+    @IBOutlet private weak var image: UILabel!
+    @IBOutlet private weak var homeDescription: UILabel!
+    @IBOutlet private weak var patio: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         guard let viewModel = viewModel else { return }
+        print("HomeDetailViewController viewWillAppear ")
+        
+        askingPrice.text = String(viewModel.askingPrice)
+        municipalityArea.text = viewModel.municipalityArea
+        daysSincePublish.text = String(viewModel.daysSincePublish)
+        livingArea.text = String(viewModel.livingArea)
+        numberOfRooms.text = String(viewModel.numberOfRooms)
+        streetAddress.text = viewModel.streetAddress
+        //image.text = viewModel.image
+        homeDescription.text = viewModel.description
+        patio.text = viewModel.patio
+
     }
     
     override func viewDidLoad() {
@@ -32,10 +52,10 @@ class HomeDetailViewController: UIViewController {
         //}
     }
     
-    private func delay(delay: Double, closure: @escaping () -> ()) {
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + delay) {
-            closure()
-        }
-    }
+    //private func delay(delay: Double, closure: @escaping () -> ()) {
+    //    DispatchQueue.main.asyncAfter(wallDeadline: .now() + delay) {
+    //        closure()
+    //    }
+    //}
 
 }
