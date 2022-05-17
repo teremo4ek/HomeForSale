@@ -9,13 +9,13 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
     
-    @IBOutlet var imageOfHouse: UIImageView!
+    @IBOutlet private var imageOfHouse: UIImageView!
     
-    @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var livingArea: UILabel!
-    @IBOutlet weak var numberOfRooms: UILabel!
-    @IBOutlet weak var municipalityArea: UILabel!
+    @IBOutlet private weak var address: UILabel!
+    @IBOutlet private weak var price: UILabel!
+    @IBOutlet private weak var livingArea: UILabel!
+    @IBOutlet private weak var numberOfRooms: UILabel!
+    @IBOutlet private weak var municipalityArea: UILabel!
     
     weak var viewModel: HomeCellViewModelType? {
         willSet(viewModel) {

@@ -54,4 +54,9 @@ class MainTableViewController: UITableViewController {
             }
         }
     }
+    
+    // MARK -- table view delegate
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
 }
