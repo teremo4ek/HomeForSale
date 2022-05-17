@@ -15,7 +15,7 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         networkDataManager = NetworkDataManager()
-        viewModel = MainTableViewModel(networkDataManager: networkDataManager!)
+        viewModel = MainTableViewModel(delegate: self, networkDataManager: networkDataManager!)
         
         viewModel?.fetchData()
     }
@@ -62,4 +62,20 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+    
+    func updateInterface() {
+        DispatchQueue.main.async {
+            print("MainTableViewController - updateInterface()")
+            self.tableView.reloadData()
+        }
+    }
 }
+
+
+extension MainTableViewController : MainTableNetworkDataDelegate {
+    func onComplition() {
+        self.updateInterface()
+    }
+
+}
+

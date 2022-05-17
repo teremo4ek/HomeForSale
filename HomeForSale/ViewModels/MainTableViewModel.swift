@@ -10,6 +10,7 @@ import Foundation
 class MainTableViewModel : MainTableViewModelType {
     
     private var selectedIndexPath: IndexPath?
+    private var delegate: MainTableNetworkDataDelegate?
     private var networkDataManager: NetworkDataManager?
     
     var homeList = [
@@ -18,12 +19,14 @@ class MainTableViewModel : MainTableViewModelType {
         HomeItm(type: "thirdType", id: "id2", askingPrice: nil, municipality: nil, area: "area2", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil)
     ]
     
-    init(networkDataManager: NetworkDataManager) {
+    init(delegate : MainTableNetworkDataDelegate, networkDataManager: NetworkDataManager) {
+        self.delegate = delegate
         self.networkDataManager = networkDataManager
         self.networkDataManager?.onCompletionHomeList = { [weak self] homeList in
             guard let self = self else { return }
             print("MainTableViewModel onCompletionHomeList, homeList.count = \(homeList.items.count)")
             self.homeList = homeList.items
+            self.delegate?.onComplition()
         }
     }
     

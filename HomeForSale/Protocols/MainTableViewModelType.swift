@@ -17,3 +17,7 @@ protocol MainTableViewModelType {
     // data throw network
     func fetchData()
 }
+
+protocol MainTableNetworkDataDelegate {
+    func onComplition()
+}
