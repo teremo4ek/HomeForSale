@@ -13,4 +13,7 @@ protocol MainTableViewModelType {
     
     func viewModelForSelectedRow() -> HomeDetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath)
+    
+    // data throw network
+    func fetchData()
 }

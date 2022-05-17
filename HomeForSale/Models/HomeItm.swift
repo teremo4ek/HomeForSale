@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - HomeList
 struct HomeList: Codable {
-    let items: [Home]
+    let items: [HomeItm]
 }
 
 // MARK: - Home
-struct Home: Codable {
+struct HomeItm: Codable {
     let type, id: String
     let askingPrice: Int?
     let municipality: String?

@@ -10,11 +10,14 @@ import UIKit
 class MainTableViewController: UITableViewController {
 
     var viewModel: MainTableViewModelType?
+    var networkDataManager: NetworkDataManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkDataManager = NetworkDataManager()
+        viewModel = MainTableViewModel(networkDataManager: networkDataManager!)
         
-        viewModel = MainTableViewModel()
+        viewModel?.fetchData()
     }
     
     // MARK: - Table view data source

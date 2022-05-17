@@ -8,14 +8,24 @@
 import Foundation
 
 class MainTableViewModel : MainTableViewModelType {
-    private var selectedIndexPath: IndexPath?
     
+    private var selectedIndexPath: IndexPath?
+    private var networkDataManager: NetworkDataManager?
     
     var homeList = [
-        Home(type: "firstType", id: "id0", askingPrice: nil, municipality: nil, area: "area0", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
-        Home(type: "secondType", id: "id1", askingPrice: nil, municipality: nil, area: "area1", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
-        Home(type: "thirdType", id: "id2", askingPrice: nil, municipality: nil, area: "area2", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil)
+        HomeItm(type: "firstType", id: "id0", askingPrice: nil, municipality: nil, area: "area0", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
+        HomeItm(type: "secondType", id: "id1", askingPrice: nil, municipality: nil, area: "area1", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
+        HomeItm(type: "thirdType", id: "id2", askingPrice: nil, municipality: nil, area: "area2", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil)
     ]
+    
+    init(networkDataManager: NetworkDataManager) {
+        self.networkDataManager = networkDataManager
+        self.networkDataManager?.onCompletionHomeList = { [weak self] homeList in
+            guard let self = self else { return }
+            print("MainTableViewModel onCompletionHomeList, homeList.count = \(homeList.items.count)")
+            self.homeList = homeList.items
+        }
+    }
     
     func numberOfRows() -> Int {
         return homeList.count
@@ -34,4 +44,9 @@ class MainTableViewModel : MainTableViewModelType {
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
     }
+    
+    func fetchData() {
+        networkDataManager?.fetchData(forRequestType: .homeList)
+    }
+
 }

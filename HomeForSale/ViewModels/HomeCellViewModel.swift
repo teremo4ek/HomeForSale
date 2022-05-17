@@ -9,9 +9,9 @@ import Foundation
 
 class HomeCellViewModel: HomeCellViewModelType {
     
-    private var home: Home
+    private var home: HomeItm
     
-    init(home: Home) {
+    init(home: HomeItm) {
         self.home = home
     }
     
