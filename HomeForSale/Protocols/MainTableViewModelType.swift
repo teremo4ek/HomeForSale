@@ -18,6 +18,6 @@ protocol MainTableViewModelType {
     func fetchData()
 }
 
-protocol MainTableNetworkDataDelegate {
+protocol MainTableNetworkDataDelegate : AnyObject {
     func onComplition()
 }

@@ -17,7 +17,28 @@ class MainTableViewController: UITableViewController {
         networkDataManager = NetworkDataManager()
         viewModel = MainTableViewModel(delegate: self, networkDataManager: networkDataManager!)
         
+        //Todo (coanfigurator )
+        let xibBtn = UIBarButtonItem(title: "Btn", style: .plain, target: self, action: #selector(btnPressed))
+        let xibLbl = UIBarButtonItem(title: "Lbl", style: .plain, target: self, action: #selector(lblPressed))
+        let detail = UIBarButtonItem(title: "Detail", style: .plain, target: self, action: #selector(detailPressed))
+        navigationItem.rightBarButtonItems = [xibBtn, xibLbl, detail ]
+        
         viewModel?.fetchData()
+    }
+    
+    @objc private func btnPressed() {
+        let coordinator = XibButtonViewCoordinator(presentingController: navigationController)
+        coordinator.start()
+    }
+    
+    @objc private func lblPressed() {
+        let coordinator = XibLabelViewCoordinator(presentingController: navigationController)
+        coordinator.start()
+    }
+    
+    @objc private func detailPressed() {
+        let coordinator = XibButtonViewCoordinator(presentingController: navigationController)
+        coordinator.start()
     }
     
     // MARK: - Table view data source
@@ -63,10 +84,12 @@ class MainTableViewController: UITableViewController {
         return 300
     }
     
-    func updateInterface() {
-        DispatchQueue.main.async {
+    
+    // MARK -- Update Interface 
+    private func updateInterface() {
+        DispatchQueue.main.async() { [weak self] in
             print("MainTableViewController - updateInterface()")
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
         }
     }
 }

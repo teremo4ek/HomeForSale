@@ -10,26 +10,22 @@ import Foundation
 class MainTableViewModel : MainTableViewModelType {
     
     private var selectedIndexPath: IndexPath?
-    private var delegate: MainTableNetworkDataDelegate?
+    private weak var delegate: MainTableNetworkDataDelegate?
     private var networkDataManager: NetworkDataManager?
     
-    var homeList = [
-        HomeItm(type: "firstType", id: "id0", askingPrice: nil, municipality: nil, area: "area0", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
-        HomeItm(type: "secondType", id: "id1", askingPrice: nil, municipality: nil, area: "area1", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil),
-        HomeItm(type: "thirdType", id: "id2", askingPrice: nil, municipality: nil, area: "area2", daysSincePublish: nil, livingArea: nil, numberOfRooms: nil, streetAddress: nil, image: "", monthlyFee: nil, ratingFormatted: nil, averagePrice: nil)
-    ]
+    var homeList: [HomeCell] = []
     
     init(delegate : MainTableNetworkDataDelegate, networkDataManager: NetworkDataManager) {
         self.delegate = delegate
         self.networkDataManager = networkDataManager
         self.networkDataManager?.onCompletionHomeList = { [weak self] homeList in
             guard let self = self else { return }
-            print("MainTableViewModel onCompletionHomeList, homeList.count = \(homeList.items.count)")
-            self.homeList = homeList.items
+            print("MainTableViewModel onCompletionHomeList, homeList.count = \(homeList.count)")
+            self.homeList = homeList
             self.delegate?.onComplition()
         }
     }
-    
+
     func numberOfRows() -> Int {
         return homeList.count
     }
@@ -50,6 +46,16 @@ class MainTableViewModel : MainTableViewModelType {
     
     func fetchData() {
         networkDataManager?.fetchData(forRequestType: .homeList)
+    }
+    
+    // MARK: private func
+    
+    fileprivate func downladImages() {
+        //for homeCell in homeList {
+            //if let url = URL(string: homeCell.imageUrl) {
+                //networkDataManager?.downloadImage(from: url, homeCell.id)
+            //}
+        //}
     }
 
 }

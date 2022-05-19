@@ -14,5 +14,4 @@ protocol HomeCellViewModelType: AnyObject {
     var livingArea: Int { get }
     var numberOfRooms: Int { get }
     var municipalityArea: String { get }
-    var imageOfHouse: String { get }
 }

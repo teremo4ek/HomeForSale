@@ -9,9 +9,9 @@ import Foundation
 
 class HomeCellViewModel: HomeCellViewModelType {
     
-    private var home: HomeItm
+    private var home: HomeCell
     
-    init(home: HomeItm) {
+    init(home: HomeCell) {
         self.home = home
     }
     
@@ -38,10 +38,6 @@ class HomeCellViewModel: HomeCellViewModelType {
     
     var municipalityArea: String {
         return  String("\(home.municipality), \(home.area)")
-    }
-    
-    var imageOfHouse: String{
-        return home.image
     }
     
 }
