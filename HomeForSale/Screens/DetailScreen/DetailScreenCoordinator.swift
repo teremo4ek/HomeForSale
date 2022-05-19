@@ -1,15 +1,14 @@
 //
-//  TestCoordinator.swift
+//  DetailScreenCoordinator.swift
 //  HomeForSale
 //
-//  Created by Yury Bely on 18.05.2022.
+//  Created by Yury Bely on 19.05.2022.
 //
 
 import Foundation
 import UIKit
 
-final class XibButtonViewCoordinator : Coordinator {
-    
+final class DetailScreenCoordinator : Coordinator {
     var presentingController: UINavigationController?
     
     init(presentingController: UINavigationController?) {
@@ -17,10 +16,9 @@ final class XibButtonViewCoordinator : Coordinator {
     }
     
     func start() {
-        let viewModel = ButtonViewModel()
-        let viewController = ButtonViewController()
+        let viewModel = DetailScreenViewModel()
+        let viewController = DetailScreenViewController()
         viewController.viewModel = viewModel
         presentingController?.pushViewController(viewController, animated: true)
     }
-    
 }

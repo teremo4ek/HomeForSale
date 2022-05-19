@@ -37,7 +37,7 @@ class MainTableViewController: UITableViewController {
     }
     
     @objc private func detailPressed() {
-        let coordinator = XibButtonViewCoordinator(presentingController: navigationController)
+        let coordinator = DetailScreenCoordinator(presentingController: navigationController)
         coordinator.start()
     }
     
