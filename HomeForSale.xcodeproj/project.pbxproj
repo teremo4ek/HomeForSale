@@ -40,6 +40,11 @@
 		1A29B5582836562E00F86F02 /* DetailScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29B5572836562E00F86F02 /* DetailScreenCoordinator.swift */; };
 		1A29B55A283656DA00F86F02 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29B559283656DA00F86F02 /* DetailScreenViewController.swift */; };
 		1AB31B13283B78F00027C338 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB31B12283B78F00027C338 /* MainController.swift */; };
+		1AC51861283B956C00D0E658 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51860283B956C00D0E658 /* MainView.swift */; };
+		1AC51864283B9F7000D0E658 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51863283B9F7000D0E658 /* HomesViewController.swift */; };
+		1AC51866283BA16D00D0E658 /* HomesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51865283BA16D00D0E658 /* HomesView.swift */; };
+		1AC51868283BC6BF00D0E658 /* HomeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51867283BC6BF00D0E658 /* HomeInfoTableViewCell.swift */; };
+		1AC5186A283BD07300D0E658 /* HomesInfoTableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51869283BD07300D0E658 /* HomesInfoTableCoordinator.swift */; };
 		B9205719B341FF26FC938E01 /* Pods_HomeForSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +84,11 @@
 		1A29B5572836562E00F86F02 /* DetailScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenCoordinator.swift; sourceTree = "<group>"; };
 		1A29B559283656DA00F86F02 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		1AB31B12283B78F00027C338 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		1AC51860283B956C00D0E658 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1AC51863283B9F7000D0E658 /* HomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
+		1AC51865283BA16D00D0E658 /* HomesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesView.swift; sourceTree = "<group>"; };
+		1AC51867283BC6BF00D0E658 /* HomeInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoTableViewCell.swift; sourceTree = "<group>"; };
+		1AC51869283BD07300D0E658 /* HomesInfoTableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesInfoTableCoordinator.swift; sourceTree = "<group>"; };
 		33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.debug.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeForSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.release.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +112,6 @@
 				33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */,
 				C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -127,6 +136,7 @@
 		1A0FAA24282FB53200D9F8F1 /* HomeForSale */ = {
 			isa = PBXGroup;
 			children = (
+				1AC5185E283B950C00D0E658 /* Pages */,
 				1A29B5462836354600F86F02 /* Screens */,
 				1A0FAA4D282FEE4B00D9F8F1 /* Utils */,
 				1A0FAA3F282FE82700D9F8F1 /* Protocols */,
@@ -180,7 +190,6 @@
 				1A0FAA39282FD81300D9F8F1 /* MainTableViewController.swift */,
 				1A0FAA41282FE8FA00D9F8F1 /* HomeDetailViewController.swift */,
 				1A0FAA43282FE93000D9F8F1 /* HomeTableViewCell.swift */,
-				1AB31B12283B78F00027C338 /* MainController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +252,35 @@
 				1A29B559283656DA00F86F02 /* DetailScreenViewController.swift */,
 			);
 			path = DetailScreen;
+			sourceTree = "<group>";
+		};
+		1AC5185E283B950C00D0E658 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				1AC51862283B9F1500D0E658 /* Homes */,
+				1AC5185F283B951900D0E658 /* MainPage */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		1AC5185F283B951900D0E658 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				1AB31B12283B78F00027C338 /* MainController.swift */,
+				1AC51860283B956C00D0E658 /* MainView.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		1AC51862283B9F1500D0E658 /* Homes */ = {
+			isa = PBXGroup;
+			children = (
+				1AC51869283BD07300D0E658 /* HomesInfoTableCoordinator.swift */,
+				1AC51863283B9F7000D0E658 /* HomesViewController.swift */,
+				1AC51865283BA16D00D0E658 /* HomesView.swift */,
+				1AC51867283BC6BF00D0E658 /* HomeInfoTableViewCell.swift */,
+			);
+			path = Homes;
 			sourceTree = "<group>";
 		};
 		4E139D7349493283288853F0 /* Frameworks */ = {
@@ -370,6 +408,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0FAA55282FF3E600D9F8F1 /* HomeCellViewModel.swift in Sources */,
+				1AC51866283BA16D00D0E658 /* HomesView.swift in Sources */,
+				1AC51868283BC6BF00D0E658 /* HomeInfoTableViewCell.swift in Sources */,
 				1A29B545283534B900F86F02 /* XibButtonViewCoordinator.swift in Sources */,
 				1A29B54028352F9900F86F02 /* ButtonViewController.swift in Sources */,
 				1A29B5422835342E00F86F02 /* ButtonViewModal.swift in Sources */,
@@ -382,8 +422,10 @@
 				1A29B53E28352C1500F86F02 /* ButtonView.swift in Sources */,
 				1AB31B13283B78F00027C338 /* MainController.swift in Sources */,
 				1A29B55028363BC500F86F02 /* LabelViewController.swift in Sources */,
+				1AC51861283B956C00D0E658 /* MainView.swift in Sources */,
 				1A29B5362833D0FA00F86F02 /* NetworkDataManager.swift in Sources */,
 				1A0FAA3D282FE0C200D9F8F1 /* HomeAPI.swift in Sources */,
+				1AC5186A283BD07300D0E658 /* HomesInfoTableCoordinator.swift in Sources */,
 				1A29B55A283656DA00F86F02 /* DetailScreenViewController.swift in Sources */,
 				1A29B5382833D33100F86F02 /* Constants.swift in Sources */,
 				1A29B5582836562E00F86F02 /* DetailScreenCoordinator.swift in Sources */,
@@ -398,6 +440,7 @@
 				1A29B55428364DF000F86F02 /* Coordinator.swift in Sources */,
 				1A0FAA42282FE8FA00D9F8F1 /* HomeDetailViewController.swift in Sources */,
 				1A0FAA4A282FEBA600D9F8F1 /* HomeDetailViewModelType.swift in Sources */,
+				1AC51864283B9F7000D0E658 /* HomesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
