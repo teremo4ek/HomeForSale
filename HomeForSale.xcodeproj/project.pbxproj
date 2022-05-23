@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A0FAA26282FB53200D9F8F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAA25282FB53200D9F8F1 /* AppDelegate.swift */; };
 		1A0FAA28282FB53200D9F8F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAA27282FB53200D9F8F1 /* SceneDelegate.swift */; };
-		1A0FAA2D282FB53200D9F8F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0FAA2B282FB53200D9F8F1 /* Main.storyboard */; };
 		1A0FAA2F282FB53400D9F8F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A0FAA2E282FB53400D9F8F1 /* Assets.xcassets */; };
 		1A0FAA32282FB53400D9F8F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0FAA30282FB53400D9F8F1 /* LaunchScreen.storyboard */; };
 		1A0FAA3A282FD81300D9F8F1 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAA39282FD81300D9F8F1 /* MainTableViewController.swift */; };
@@ -40,13 +39,14 @@
 		1A29B55628364F7900F86F02 /* DetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29B55528364F7900F86F02 /* DetailScreenViewModel.swift */; };
 		1A29B5582836562E00F86F02 /* DetailScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29B5572836562E00F86F02 /* DetailScreenCoordinator.swift */; };
 		1A29B55A283656DA00F86F02 /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A29B559283656DA00F86F02 /* DetailScreenViewController.swift */; };
+		1AB31B13283B78F00027C338 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB31B12283B78F00027C338 /* MainController.swift */; };
+		B9205719B341FF26FC938E01 /* Pods_HomeForSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A0FAA22282FB53200D9F8F1 /* HomeForSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeForSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A0FAA25282FB53200D9F8F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A0FAA27282FB53200D9F8F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A0FAA2C282FB53200D9F8F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A0FAA2E282FB53400D9F8F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A0FAA31282FB53400D9F8F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A0FAA33282FB53400D9F8F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +78,10 @@
 		1A29B55528364F7900F86F02 /* DetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewModel.swift; sourceTree = "<group>"; };
 		1A29B5572836562E00F86F02 /* DetailScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenCoordinator.swift; sourceTree = "<group>"; };
 		1A29B559283656DA00F86F02 /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
+		1AB31B12283B78F00027C338 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.debug.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.debug.xcconfig"; sourceTree = "<group>"; };
+		BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeForSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.release.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,17 +89,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9205719B341FF26FC938E01 /* Pods_HomeForSale.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18ECC8127FA5F2AB9DCD2CF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */,
+				C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		1A0FAA19282FB53200D9F8F1 = {
 			isa = PBXGroup;
 			children = (
 				1A0FAA24282FB53200D9F8F1 /* HomeForSale */,
 				1A0FAA23282FB53200D9F8F1 /* Products */,
+				18ECC8127FA5F2AB9DCD2CF8 /* Pods */,
+				4E139D7349493283288853F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,7 +136,6 @@
 				1A0FAA3B282FE05D00D9F8F1 /* Models */,
 				1A0FAA25282FB53200D9F8F1 /* AppDelegate.swift */,
 				1A0FAA27282FB53200D9F8F1 /* SceneDelegate.swift */,
-				1A0FAA2B282FB53200D9F8F1 /* Main.storyboard */,
 				1A0FAA2E282FB53400D9F8F1 /* Assets.xcassets */,
 				1A0FAA30282FB53400D9F8F1 /* LaunchScreen.storyboard */,
 				1A0FAA33282FB53400D9F8F1 /* Info.plist */,
@@ -164,6 +180,7 @@
 				1A0FAA39282FD81300D9F8F1 /* MainTableViewController.swift */,
 				1A0FAA41282FE8FA00D9F8F1 /* HomeDetailViewController.swift */,
 				1A0FAA43282FE93000D9F8F1 /* HomeTableViewCell.swift */,
+				1AB31B12283B78F00027C338 /* MainController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +245,14 @@
 			path = DetailScreen;
 			sourceTree = "<group>";
 		};
+		4E139D7349493283288853F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A0FAA36282FB53400D9F8F1 /* Build configuration list for PBXNativeTarget "HomeForSale" */;
 			buildPhases = (
+				426E6FD97F0D37C491205D1E /* [CP] Check Pods Manifest.lock */,
 				1A0FAA1E282FB53200D9F8F1 /* Sources */,
 				1A0FAA1F282FB53200D9F8F1 /* Frameworks */,
 				1A0FAA20282FB53200D9F8F1 /* Resources */,
+				B9B75FE72D92A07FA844C1AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,11 +317,52 @@
 				1A0FAA32282FB53400D9F8F1 /* LaunchScreen.storyboard in Resources */,
 				1A29B53C28352B6E00F86F02 /* ButtonView.xib in Resources */,
 				1A0FAA2F282FB53400D9F8F1 /* Assets.xcassets in Resources */,
-				1A0FAA2D282FB53200D9F8F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		426E6FD97F0D37C491205D1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HomeForSale-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9B75FE72D92A07FA844C1AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeForSale/Pods-HomeForSale-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeForSale/Pods-HomeForSale-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeForSale/Pods-HomeForSale-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A0FAA1E282FB53200D9F8F1 /* Sources */ = {
@@ -312,6 +380,7 @@
 				1A0FAA48282FEB3600D9F8F1 /* MainTableViewModelType.swift in Sources */,
 				1A29B53A2835063900F86F02 /* HomeData.swift in Sources */,
 				1A29B53E28352C1500F86F02 /* ButtonView.swift in Sources */,
+				1AB31B13283B78F00027C338 /* MainController.swift in Sources */,
 				1A29B55028363BC500F86F02 /* LabelViewController.swift in Sources */,
 				1A29B5362833D0FA00F86F02 /* NetworkDataManager.swift in Sources */,
 				1A0FAA3D282FE0C200D9F8F1 /* HomeAPI.swift in Sources */,
@@ -335,14 +404,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1A0FAA2B282FB53200D9F8F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A0FAA2C282FB53200D9F8F1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1A0FAA30282FB53400D9F8F1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -470,6 +531,7 @@
 		};
 		1A0FAA37282FB53400D9F8F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -479,7 +541,6 @@
 				INFOPLIST_FILE = HomeForSale/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -497,6 +558,7 @@
 		};
 		1A0FAA38282FB53400D9F8F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -506,7 +568,6 @@
 				INFOPLIST_FILE = HomeForSale/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
