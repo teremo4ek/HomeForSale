@@ -10,11 +10,14 @@ import PureLayout
 
 class HomesView: UIView {
 
-    var tableView: UITableView!
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(forAutoLayout: ())
+        tableView.rowHeight = UITableView.automaticDimension
+        return tableView
+    }()
     
-    init(tableView: UITableView) {
+    init() {
         super.init(frame: .zero)
-        self.tableView = tableView
         addSubviews()
         setupConstraints()
     }
@@ -28,7 +31,7 @@ class HomesView: UIView {
     }
     
     private func setupConstraints() {
-        tableView.autoPinEdgesToSuperviewEdges(with: .zero)
+        tableView.autoPinEdgesToSuperviewEdges()
     }
     
 }

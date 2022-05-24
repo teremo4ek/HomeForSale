@@ -13,38 +13,37 @@ class HomesViewController: UIViewController {
     
     var viewModel: HomesViewModel!
     
-    lazy var homesView: UIView = {
-        return HomesView(tableView: self.tableView)
-    }()
+    var homesView: HomesView {
+        view as! HomesView
+    }
     
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(HomeInfoTableViewCell.self, forCellReuseIdentifier: homeInfoCellReuseIdentifier)
-        tableView.estimatedRowHeight = 300
-        tableView.rowHeight = UITableView.automaticDimension
-        return tableView
-    }()
+    
+    override func loadView() {
+        view = HomesView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(self.homesView)
-        self.homesView.autoPinEdgesToSuperviewEdges()
-        self.view.layoutIfNeeded()
+        homesView.tableView.delegate = self
+        homesView.tableView.dataSource = self
+        homesView.tableView.register(HomeInfoTableViewCell.self, forCellReuseIdentifier: homeInfoCellReuseIdentifier)
         
         viewModel?.delegate = self
-        viewModel?.fetchData()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        viewModel?.fetchData()
     }
     
     // MARK -- Update Interface
     private func updateInterface() {
         DispatchQueue.main.async() { [weak self] in
             print("MainTableViewController - updateInterface()")
-            self?.tableView.reloadData()
+            
         }
     }
 }
