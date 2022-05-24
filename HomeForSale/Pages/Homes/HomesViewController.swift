@@ -9,7 +9,9 @@ import UIKit
 
 class HomesViewController: UIViewController {
     
-    let homeInfoCellReuseIdentifier = "homeCellReuseIdentifier"
+    private let homeInfoCellReuseIdentifier = "homeCellReuseIdentifier"
+    
+    var viewModel: HomesViewModel!
     
     lazy var homesView: UIView = {
         return HomesView(tableView: self.tableView)
@@ -21,11 +23,10 @@ class HomesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(HomeInfoTableViewCell.self, forCellReuseIdentifier: homeInfoCellReuseIdentifier)
-        tableView.estimatedRowHeight = 64
+        tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,43 +35,44 @@ class HomesViewController: UIViewController {
         self.homesView.autoPinEdgesToSuperviewEdges()
         self.view.layoutIfNeeded()
         
-        DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        viewModel?.delegate = self
+        viewModel?.fetchData()
+        
+    }
+    
+    // MARK -- Update Interface
+    private func updateInterface() {
+        DispatchQueue.main.async() { [weak self] in
+            print("MainTableViewController - updateInterface()")
+            self?.tableView.reloadData()
+        }
     }
 }
 
 extension HomesViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel?.numberOfRows() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeInfoCellReuseIdentifier, for: indexPath) as! HomeInfoTableViewCell
+
         
-        
-        switch indexPath.row {
-            case 0:
-                cell.titleLabel.text = "Phone Number"
-                cell.descriptionLabel.text = "+234567890"
-            case 1:
-                cell.titleLabel.text = "Email"
-                cell.descriptionLabel.text = "john@doe.co"
-            case 2:
-                cell.titleLabel.text = "LinkedIn"
-                cell.descriptionLabel.text = "45, Walt Disney St.\n37485, Mickey Mouse State"
-            default:
-                break
-            }
-        
-        
+        let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+        cell.viewModel = cellViewModel
+
         return cell
     }
-    
-    
 }
 
 extension HomesViewController : UITableViewDelegate {
     
+}
+
+extension HomesViewController : NetworkDataDelegate {
+    func onComplition() {
+        self.updateInterface()
+    }
+
 }

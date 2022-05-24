@@ -21,3 +21,7 @@ protocol MainTableViewModelType {
 protocol MainTableNetworkDataDelegate : AnyObject {
     func onComplition()
 }
+
+protocol NetworkDataDelegate : AnyObject {
+    func onComplition()
+}

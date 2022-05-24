@@ -9,28 +9,72 @@ import Foundation
 
 class NetworkDataManager {
     
+    var isTestMode: Bool
+    
+    init(testMode: Bool = false) {
+        self.isTestMode = testMode
+    }
+    
+    
     enum RequestType {
         case homeList
-        case homeDetail(id: Int)
+        case homeDetail
         
         var urlString: String {
             switch self {
             case .homeList:
                 return Constants.UrlHomeList
                 
-            case .homeDetail(_):
+            case .homeDetail:
                 return Constants.UrlHomeDetail
             }
         }
+        
+        var filePath: String {
+            switch self {
+            case .homeList :
+                return "HomesInfo"
+            case .homeDetail:
+                return "HomeDetail"
+            }
+        }
     }
-    
+
     var onCompletionHomeList: (([HomeCell]) -> Void)?
     var onCompletionImage: ((Data?, String) -> Void)?
     
     // TODO 
     // MARK - Fetch Data API
     func fetchData(forRequestType requestType: RequestType) {
-        performRequest(withURLString: requestType.urlString, requestType: requestType)
+        var data: Data?
+        if(isTestMode) {
+            data = readLocalFile(forName: requestType.filePath)
+        } else {
+            // TODO
+            print("Not Impliment yet!!!")
+        }
+        
+        if data != nil {
+            
+            do {
+                if requestType == .homeList {
+                    let homeList = try JSONDecoder().decode(HomeList.self, from: data!)
+                    var homeCell = [HomeCell]()
+                    for homeItem in homeList.items {
+                        guard let cell = HomeCell(homeItem: homeItem) else { continue }
+                        homeCell.append(cell)
+                    }
+                        
+                    self.onCompletionHomeList?(homeCell)
+                }
+                else if requestType == .homeDetail {
+                    //let detail = try JSONDecoder().decode(HomeDescription.self, from: data!)
+                }
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     fileprivate func performRequest(withURLString urlString: String, requestType: RequestType) {
@@ -91,6 +135,51 @@ class NetworkDataManager {
             print("Download Img Finished Successfuly")
             
             self.onCompletionImage?(data, id)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    private func readLocalFile(forName name: String) -> Data? {
+        do {
+            if let bundlePath = Bundle.main.path(forResource: name,
+                                                 ofType: "json"),
+                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
+                return jsonData
+            }
+        } catch {
+            print(error)
+        }
+        
+        return nil
+    }
+    
+    private func loadJson(fromURLString urlString: String,
+                          completion: @escaping (Result<Data, Error>) -> Void) {
+        if let url = URL(string: urlString) {
+            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
+                }
+                
+                if let data = data {
+                    completion(.success(data))
+                }
+            }
+            
+            urlSession.resume()
+        }
+    }
+
+    private func parse(jsonData: Data) {
+        do {
+            let decodedData = try JSONDecoder().decode(HomeList.self,
+                                                       from: jsonData)
+        } catch {
+            print("decode error")
         }
     }
     

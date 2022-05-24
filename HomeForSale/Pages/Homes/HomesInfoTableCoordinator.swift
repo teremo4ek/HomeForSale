@@ -15,9 +15,10 @@ final class HomesInfoTableCoordinator : Coordinator {
     }
     
     func start() {
-        //let viewModel = HomesViewModel()
+        let dataManager = NetworkDataManager(testMode: true)
+        let viewModel = HomesViewModel(dataManager: dataManager)
         let viewController = HomesViewController()
-        //viewController.viewModel = viewModel
+        viewController.viewModel = viewModel
         presentingController?.pushViewController(viewController, animated: true)
     }
 }

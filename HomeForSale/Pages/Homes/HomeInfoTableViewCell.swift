@@ -10,26 +10,78 @@ import PureLayout
 
 class HomeInfoTableViewCell: UITableViewCell {
     
-    lazy var titleLabel: UILabel = {
+    let smallPadding: CGFloat = 16.0
+    let largePadding: CGFloat = 48.0
+    
+    
+    var viewModel: HomeInfoCellViewModel? {
+        didSet {
+            updateElements()
+        }
+    }
+    
+    private func updateElements() {
+        houseImage.image = UIImage(named: "houseImg")
+        addressLabel.text = viewModel?.address
+        municipalityLabel.text = viewModel?.municipalityArea
+        priceLabel.text = String(viewModel?.price ?? 0)
+        livingAreaLabel.text = String(viewModel?.livingArea ?? 0)
+        numberOfRoomsLabel.text = String(viewModel?.numberOfRooms ?? 0)
+        
+        setNeedsUpdateConstraints()
+    }
+    
+    lazy var houseImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.borderWidth = 3.0
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        return imageView
+    }()
+    
+    lazy var addressLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Title"
         return label
     }()
     
-    lazy var descriptionLabel: UILabel = {
+    lazy var municipalityLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Description"
         label.textColor = .gray
-        label.numberOfLines = 0
         return label
     }()
+    
+    lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String(viewModel?.price ?? 0)
+        return label
+    }()
+    
+    lazy var livingAreaLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String(viewModel?.livingArea ?? 0)
+        return label
+    }()
+    
+    lazy var numberOfRoomsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = String(viewModel?.numberOfRooms ?? 0)
+        label.textAlignment = .right
+        return label
+    }()
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(houseImage)
+        contentView.addSubview(addressLabel)
+        contentView.addSubview(municipalityLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(livingAreaLabel)
+        contentView.addSubview(numberOfRoomsLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,13 +89,38 @@ class HomeInfoTableViewCell: UITableViewCell {
     }
     
     override func updateConstraints() {
-        let titleInsets = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 8)
-        titleLabel.autoPinEdgesToSuperviewEdges(with: titleInsets, excludingEdge: .bottom)
         
-        let descInsets = UIEdgeInsets(top: 0, left: 16, bottom: 4, right: 8)
-        descriptionLabel.autoPinEdgesToSuperviewEdges(with: descInsets, excludingEdge: .top)
+        houseImage.autoPinEdge(toSuperviewEdge: .top, withInset: smallPadding)
+        houseImage.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
+        houseImage.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        houseImage.autoSetDimension(.height, toSize: 200)
         
-        descriptionLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 16)
+        addressLabel.autoPinEdge(.top, to: .bottom, of: houseImage, withOffset: smallPadding)
+        addressLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
+        addressLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        
+        municipalityLabel.autoPinEdge(.top, to: .bottom, of: addressLabel, withOffset: smallPadding)
+        municipalityLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
+        municipalityLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        
+
+        livingAreaLabel.autoPinEdge(.top, to: .bottom, of: municipalityLabel, withOffset: smallPadding)
+        livingAreaLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: smallPadding)
+        livingAreaLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        priceLabel.autoAlignAxis(.horizontal, toSameAxisOf: livingAreaLabel)
+        priceLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
+        priceLabel.autoPinEdge(.trailing, to: .leading, of: livingAreaLabel, withOffset: smallPadding)
+
+        
+        numberOfRoomsLabel.autoAlignAxis(.horizontal, toSameAxisOf: livingAreaLabel)
+        numberOfRoomsLabel.autoPinEdge(.leading, to: .trailing, of: livingAreaLabel, withOffset: smallPadding)
+        numberOfRoomsLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        
+        
+        
+        
+        
         super.updateConstraints()
     }
 }

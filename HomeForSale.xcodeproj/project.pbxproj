@@ -45,6 +45,10 @@
 		1AC51866283BA16D00D0E658 /* HomesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51865283BA16D00D0E658 /* HomesView.swift */; };
 		1AC51868283BC6BF00D0E658 /* HomeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51867283BC6BF00D0E658 /* HomeInfoTableViewCell.swift */; };
 		1AC5186A283BD07300D0E658 /* HomesInfoTableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51869283BD07300D0E658 /* HomesInfoTableCoordinator.swift */; };
+		1AC5186D283BE4F100D0E658 /* HomesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5186C283BE4F100D0E658 /* HomesInfo.json */; };
+		1AC5186F283BE53400D0E658 /* HomeDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5186E283BE53400D0E658 /* HomeDetail.json */; };
+		1AC51871283CCCB500D0E658 /* HomesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51870283CCCB500D0E658 /* HomesViewModel.swift */; };
+		1AC51873283CCE7700D0E658 /* HomeInfoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51872283CCE7700D0E658 /* HomeInfoCellViewModel.swift */; };
 		B9205719B341FF26FC938E01 /* Pods_HomeForSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +93,10 @@
 		1AC51865283BA16D00D0E658 /* HomesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesView.swift; sourceTree = "<group>"; };
 		1AC51867283BC6BF00D0E658 /* HomeInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoTableViewCell.swift; sourceTree = "<group>"; };
 		1AC51869283BD07300D0E658 /* HomesInfoTableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesInfoTableCoordinator.swift; sourceTree = "<group>"; };
+		1AC5186C283BE4F100D0E658 /* HomesInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomesInfo.json; sourceTree = "<group>"; };
+		1AC5186E283BE53400D0E658 /* HomeDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomeDetail.json; sourceTree = "<group>"; };
+		1AC51870283CCCB500D0E658 /* HomesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewModel.swift; sourceTree = "<group>"; };
+		1AC51872283CCE7700D0E658 /* HomeInfoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoCellViewModel.swift; sourceTree = "<group>"; };
 		33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.debug.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeForSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.release.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +152,7 @@
 				1A0FAA40282FE84900D9F8F1 /* View */,
 				1A29B5342833D08900F86F02 /* Network */,
 				1A0FAA3B282FE05D00D9F8F1 /* Models */,
+				1AC5186B283BE46700D0E658 /* TestData */,
 				1A0FAA25282FB53200D9F8F1 /* AppDelegate.swift */,
 				1A0FAA27282FB53200D9F8F1 /* SceneDelegate.swift */,
 				1A0FAA2E282FB53400D9F8F1 /* Assets.xcassets */,
@@ -277,10 +286,21 @@
 			children = (
 				1AC51869283BD07300D0E658 /* HomesInfoTableCoordinator.swift */,
 				1AC51863283B9F7000D0E658 /* HomesViewController.swift */,
+				1AC51870283CCCB500D0E658 /* HomesViewModel.swift */,
 				1AC51865283BA16D00D0E658 /* HomesView.swift */,
 				1AC51867283BC6BF00D0E658 /* HomeInfoTableViewCell.swift */,
+				1AC51872283CCE7700D0E658 /* HomeInfoCellViewModel.swift */,
 			);
 			path = Homes;
+			sourceTree = "<group>";
+		};
+		1AC5186B283BE46700D0E658 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				1AC5186C283BE4F100D0E658 /* HomesInfo.json */,
+				1AC5186E283BE53400D0E658 /* HomeDetail.json */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 		4E139D7349493283288853F0 /* Frameworks */ = {
@@ -351,8 +371,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC5186D283BE4F100D0E658 /* HomesInfo.json in Resources */,
 				1A29B55128363BC500F86F02 /* LabelViewController.xib in Resources */,
 				1A0FAA32282FB53400D9F8F1 /* LaunchScreen.storyboard in Resources */,
+				1AC5186F283BE53400D0E658 /* HomeDetail.json in Resources */,
 				1A29B53C28352B6E00F86F02 /* ButtonView.xib in Resources */,
 				1A0FAA2F282FB53400D9F8F1 /* Assets.xcassets in Resources */,
 			);
@@ -413,10 +435,12 @@
 				1A29B545283534B900F86F02 /* XibButtonViewCoordinator.swift in Sources */,
 				1A29B54028352F9900F86F02 /* ButtonViewController.swift in Sources */,
 				1A29B5422835342E00F86F02 /* ButtonViewModal.swift in Sources */,
+				1AC51871283CCCB500D0E658 /* HomesViewModel.swift in Sources */,
 				1A29B5492836393100F86F02 /* XibLabelViewCoordinator.swift in Sources */,
 				1A0FAA57283262F100D9F8F1 /* TypeCell.swift in Sources */,
 				1A0FAA3A282FD81300D9F8F1 /* MainTableViewController.swift in Sources */,
 				1A0FAA26282FB53200D9F8F1 /* AppDelegate.swift in Sources */,
+				1AC51873283CCE7700D0E658 /* HomeInfoCellViewModel.swift in Sources */,
 				1A0FAA48282FEB3600D9F8F1 /* MainTableViewModelType.swift in Sources */,
 				1A29B53A2835063900F86F02 /* HomeData.swift in Sources */,
 				1A29B53E28352C1500F86F02 /* ButtonView.swift in Sources */,
