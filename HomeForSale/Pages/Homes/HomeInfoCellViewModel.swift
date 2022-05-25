@@ -1,14 +1,13 @@
 //
-//  HomeViewCellViewModel.swift
+//  HomeInfoCellViewModel.swift
 //  HomeForSale
 //
-//  Created by Yury Bely on 14.05.2022.
+//  Created by Yury Bely on 24.05.2022.
 //
 
 import Foundation
 
-class HomeCellViewModel: HomeCellViewModelType {
-    
+final class HomeInfoCellViewModel {
     private var home: HomeCell
     
     init(home: HomeCell) {
@@ -39,5 +38,4 @@ class HomeCellViewModel: HomeCellViewModelType {
     var municipalityArea: String {
         return  String("\(home.municipality), \(home.area)")
     }
-    
 }

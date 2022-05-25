@@ -1,0 +1,14 @@
+{
+    "type": "HighlightedProperty",
+    "id": "1234567890",
+    "askingPrice": 2650000,
+    "municipality": "Gällivare kommun",
+    "area": "Heden",
+    "daysSincePublish": 1,
+    "livingArea": 120,
+    "numberOfRooms": 5,
+    "streetAddress": "Mockvägen 1",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Hus_i_svarttorp.jpg/800px-Hus_i_svarttorp.jpg",
+    "description": "The living room can be furnished according to your own wishes and tastes, here the whole family can gather and enjoy each other's company. From the living room you reach the terrace overlooking the lush courtyard which is located in undisturbed and secluded location.",
+    "patio": "Yes"
+}
