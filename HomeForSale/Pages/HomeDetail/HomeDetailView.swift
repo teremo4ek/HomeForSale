@@ -50,11 +50,14 @@ class HomeDetailView: UIView {
     var livingAreaTitel: UILabel = {
         let label = UILabel.newAutoLayout()
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.text = NSLocalizedString("LivingArea", comment: "")
+        label.backgroundColor = .green
         return label
     }()
     
     var livingAreaLabel: UILabel = {
         let label = UILabel.newAutoLayout()
+        label.backgroundColor = .gray
         return label
     }()
     
@@ -66,6 +69,7 @@ class HomeDetailView: UIView {
     var numberOfRoomsTitel: UILabel = {
         let label = UILabel.newAutoLayout()
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.text = NSLocalizedString("NumberOfRooms", comment: "")
         return label
     }()
     
@@ -77,6 +81,7 @@ class HomeDetailView: UIView {
     var patioTitel: UILabel = {
         let label = UILabel.newAutoLayout()
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.text = NSLocalizedString("Patio", comment: "")
         return label
     }()
     
@@ -88,6 +93,7 @@ class HomeDetailView: UIView {
     var daysSincePublishTitel: UILabel = {
         let label = UILabel.newAutoLayout()
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.text = NSLocalizedString("DaysSincePublish", comment: "")
         return label
     }()
     
@@ -128,54 +134,57 @@ class HomeDetailView: UIView {
         contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets.zero)
         contentView.autoMatch(.width, to: .width, of: self)
         
-        houseImage.autoPinEdge(toSuperviewEdge: .top, withInset: smallPadding)
-        houseImage.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
-        houseImage.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        houseImage.autoPinEdge(toSuperviewSafeArea: .top, withInset: smallPadding)
+        houseImage.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
+        houseImage.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         houseImage.autoSetDimension(.height, toSize: 250)
         
         addressLabel.autoPinEdge(.top, to: .bottom, of: houseImage, withOffset: smallPadding)
-        addressLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
-        addressLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        addressLabel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
+        addressLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         
         municipalityAreaLabel.autoPinEdge(.top, to: .bottom, of: addressLabel, withOffset: minPadding)
-        municipalityAreaLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
-        municipalityAreaLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        municipalityAreaLabel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
+        municipalityAreaLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         
         askingPriceLabel.autoPinEdge(.top, to: .bottom, of: municipalityAreaLabel, withOffset: minPadding)
-        askingPriceLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
-        askingPriceLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        askingPriceLabel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
+        askingPriceLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         
         homeDescriptionLabel.autoPinEdge(.top, to: .bottom, of: askingPriceLabel, withOffset: smallPadding)
-        homeDescriptionLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
-        homeDescriptionLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        homeDescriptionLabel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
+        homeDescriptionLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
 
         livingAreaTitel.autoPinEdge(.top, to: .bottom, of: homeDescriptionLabel, withOffset: midlePadding)
-        livingAreaTitel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
-        
+        livingAreaTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
+
         livingAreaLabel.autoAlignAxis(.horizontal, toSameAxisOf: livingAreaTitel)
+        livingAreaLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         livingAreaLabel.autoPinEdge(.leading, to: .trailing, of: livingAreaTitel, withOffset: minPadding)
-        livingAreaLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        
         
         numberOfRoomsTitel.autoPinEdge(.top, to: .bottom, of: livingAreaLabel, withOffset: minPadding)
-        numberOfRoomsTitel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
+        numberOfRoomsTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
         
         numberOfRoomsLabel.autoAlignAxis(.horizontal, toSameAxisOf: numberOfRoomsTitel)
         numberOfRoomsLabel.autoPinEdge(.leading, to: .trailing, of: numberOfRoomsTitel, withOffset: minPadding)
-        numberOfRoomsLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        numberOfRoomsLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         
         patioTitel.autoPinEdge(.top, to: .bottom, of: numberOfRoomsLabel, withOffset: minPadding)
-        patioTitel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
+        patioTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
         
         patioLabel.autoAlignAxis(.horizontal, toSameAxisOf: patioTitel)
         patioLabel.autoPinEdge(.leading, to: .trailing, of: patioTitel, withOffset: minPadding)
-        patioLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        patioLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         
         daysSincePublishTitel.autoPinEdge(.top, to: .bottom, of: patioLabel, withOffset: minPadding)
-        daysSincePublishTitel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
+        daysSincePublishTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
+        daysSincePublishTitel.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 20)
         
         daysSincePublishLabel.autoAlignAxis(.horizontal, toSameAxisOf: daysSincePublishTitel)
         daysSincePublishLabel.autoPinEdge(.leading, to: .trailing, of: daysSincePublishTitel, withOffset: minPadding)
-        daysSincePublishLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        daysSincePublishLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
+        
         
        
     }

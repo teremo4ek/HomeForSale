@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  HomeForSale
+
+  Created by Yury Bely on 25.05.2022.
+  
+*/
+
+"LivingArea" = "Living area:";
+"NumberOfRooms" = "Number of rooms:";
+"Patio" = "Potio:";
+"DaysSincePublish" = "Days since publish:";
+

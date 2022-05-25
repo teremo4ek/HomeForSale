@@ -54,6 +54,7 @@
 		1AC5187A283E351100D0E658 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51879283E351100D0E658 /* HomeDetailViewController.swift */; };
 		1AC5187C283E36FE00D0E658 /* HomeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC5187B283E36FE00D0E658 /* HomeDetailView.swift */; };
 		1AC5187E283E619300D0E658 /* HomeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC5187D283E619300D0E658 /* HomeDetail.swift */; };
+		1AC51882283E770F00D0E658 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AC51884283E770F00D0E658 /* Localizable.strings */; };
 		B9205719B341FF26FC938E01 /* Pods_HomeForSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,9 @@
 		1AC51879283E351100D0E658 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		1AC5187B283E36FE00D0E658 /* HomeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailView.swift; sourceTree = "<group>"; };
 		1AC5187D283E619300D0E658 /* HomeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetail.swift; sourceTree = "<group>"; };
+		1AC5187F283E761200D0E658 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1AC51883283E770F00D0E658 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1AC51885283E771100D0E658 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.debug.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeForSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.release.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				1A0FAA2E282FB53400D9F8F1 /* Assets.xcassets */,
 				1A0FAA30282FB53400D9F8F1 /* LaunchScreen.storyboard */,
 				1A0FAA33282FB53400D9F8F1 /* Info.plist */,
+				1AC51884283E770F00D0E658 /* Localizable.strings */,
 			);
 			path = HomeForSale;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 1A0FAA19282FB53200D9F8F1;
 			productRefGroup = 1A0FAA23282FB53200D9F8F1 /* Products */;
@@ -397,6 +403,7 @@
 				1AC5186D283BE4F100D0E658 /* HomesInfo.json in Resources */,
 				1A29B55128363BC500F86F02 /* LabelViewController.xib in Resources */,
 				1A0FAA32282FB53400D9F8F1 /* LaunchScreen.storyboard in Resources */,
+				1AC51882283E770F00D0E658 /* Localizable.strings in Resources */,
 				1AC5186F283BE53400D0E658 /* HomeDetail.json in Resources */,
 				1A29B53C28352B6E00F86F02 /* ButtonView.xib in Resources */,
 				1A0FAA2F282FB53400D9F8F1 /* Assets.xcassets in Resources */,
@@ -503,8 +510,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				1A0FAA31282FB53400D9F8F1 /* Base */,
+				1AC5187F283E761200D0E658 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1AC51884283E770F00D0E658 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AC51883283E770F00D0E658 /* en */,
+				1AC51885283E771100D0E658 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -514,6 +531,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -574,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
