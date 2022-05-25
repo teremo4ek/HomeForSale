@@ -73,7 +73,7 @@ class MainTableViewController: UITableViewController {
         guard let identifier = segue.identifier, let viewModel = viewModel else { return }
         
         if identifier == "detailSegue" {
-            if let dvc = segue.destination as? HomeDetailViewController {
+            if let dvc = segue.destination as? HomeDetailViewController1 {
                 dvc.viewModel = viewModel.viewModelForSelectedRow()
             }
         }

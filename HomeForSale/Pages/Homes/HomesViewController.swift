@@ -41,10 +41,11 @@ class HomesViewController: UIViewController {
     
     // MARK -- Update Interface
     private func updateInterface() {
-        DispatchQueue.main.async() { [weak self] in
-            print("MainTableViewController - updateInterface()")
-            
-        }
+        print("MainTableViewController - updateInterface()")
+//        DispatchQueue.main.async() { [weak self] in
+//            print("MainTableViewController - updateInterface()")
+//
+//        }
     }
 }
 
@@ -67,6 +68,13 @@ extension HomesViewController : UITableViewDataSource {
 
 extension HomesViewController : UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        print("Row: \(indexPath.row)")
+        
+        let coordinator = HomeDetailCoordinator(presentingController: navigationController)
+        coordinator.start()
+    }
 }
 
 extension HomesViewController : NetworkDataDelegate {

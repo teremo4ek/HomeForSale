@@ -13,6 +13,7 @@ class HomesView: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView(forAutoLayout: ())
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = true
         return tableView
     }()
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeDetailViewController: UIViewController {
+class HomeDetailViewController1: UIViewController {
     
     var viewModel: HomeDetailViewModelType?
 

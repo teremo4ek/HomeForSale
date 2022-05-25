@@ -41,6 +41,7 @@ class NetworkDataManager {
     }
 
     var onCompletionHomeList: (([HomeCell]) -> Void)?
+    var onCompletionHomeDetail: ((HomeDetail) -> Void)?
     var onCompletionImage: ((Data?, String) -> Void)?
     
     // TODO 
@@ -68,7 +69,10 @@ class NetworkDataManager {
                     self.onCompletionHomeList?(homeCell)
                 }
                 else if requestType == .homeDetail {
-                    //let detail = try JSONDecoder().decode(HomeDescription.self, from: data!)
+                    let homeDescription = try JSONDecoder().decode(HomeDescription.self, from: data!)
+                    guard let homeDetail = HomeDetail(homeDescription: homeDescription) else { return }
+    
+                    self.onCompletionHomeDetail?(homeDetail)
                 }
                 
             } catch let error as NSError {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeDetailViewModel: HomeDetailViewModelType {
+class HomeDetailViewModel1: HomeDetailViewModelType {
     //TODO 
     private var homeDescription = HomeDescription(
         type: "HighlightedProperty",
