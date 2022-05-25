@@ -34,11 +34,6 @@ final class HomesViewModel {
         return HomeInfoCellViewModel(home: home)
     }
     
-    func viewModelForSelectedRow() -> HomeDetailViewModelType? {
-        guard let selectedIndexPath = selectedIndexPath else { return nil }
-        return HomeDetailViewModel1(home: homeList[selectedIndexPath.row])
-    }
-    
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
     }
