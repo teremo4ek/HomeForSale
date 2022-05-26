@@ -10,7 +10,7 @@ class DataManager {
     var onCompletionImage: ((Data?, String) -> Void)?
     
     init(testMode: Bool = false) {
-        self.isTestMode = testMode
+        self.isTestMode = false
     }
     
     enum RequestType {
@@ -38,36 +38,18 @@ class DataManager {
     }
     
     func fetchData(forRequestType requestType: RequestType) {
-        var loadData: Data?
         if(isTestMode) {
-            loadData = readLocalJson(forName: requestType.filePath)
+            let loadData = readLocalJson(forName: requestType.filePath)
+            analizaData(loadData: loadData, type: requestType)
         } else {
-            // TODO
-            print("Not Impliment yet!!!")
-        }
-        
-        if let data = loadData {
-            
-            if requestType == .homeList {
-                guard let myStruct = parse(model: HomeList.self, jsonData: data ) else { return }
-                
-                var homeCell = [HomeCell]()
-                for homeItem in myStruct.items {
-                    guard let cell = HomeCell(homeItem: homeItem) else { continue }
-                    homeCell.append(cell)
+            fetchJson(fromURLString : requestType.urlString, completion: { [weak self] (result) in
+                do {
+                    let loadData  = try result.get()
+                    self?.analizaData(loadData: loadData, type: requestType)
+                } catch {
+                    print(error.localizedDescription)
                 }
-                
-                self.onCompletionHomeList?(homeCell)
-            }
-            else if requestType == .homeDetail {
-                guard let myStruct = parse(model: HomeDescription.self, jsonData: data ) else { return }
-                
-                guard let homeDetail = HomeDetail(homeDescription: myStruct) else { return }
-                
-                self.onCompletionHomeDetail?(homeDetail)
-            }
-            
-            
+            })
         }
     }
     
@@ -115,6 +97,27 @@ class DataManager {
         }
     }
     
-    
-    
+    private func analizaData(loadData: Data?, type: RequestType)
+    {
+        guard let data = loadData else { return }
+        
+        if type == .homeList {
+            guard let myStruct = parse(model: HomeList.self, jsonData: data ) else { return }
+            
+            var homeCell = [HomeCell]()
+            for homeItem in myStruct.items {
+                guard let cell = HomeCell(homeItem: homeItem) else { continue }
+                homeCell.append(cell)
+            }
+            
+            self.onCompletionHomeList?(homeCell)
+        }
+        else if type == .homeDetail {
+            guard let myStruct = parse(model: HomeDescription.self, jsonData: data ) else { return }
+            
+            guard let homeDetail = HomeDetail(homeDescription: myStruct) else { return }
+            
+            self.onCompletionHomeDetail?(homeDetail)
+        }
+    }
 }

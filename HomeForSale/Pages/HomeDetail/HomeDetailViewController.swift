@@ -33,17 +33,21 @@ class HomeDetailViewController: UIViewController {
     
     // MARK -- Update Interface
     private func updateInterface() {
-        print("HomeDetailViewController - updateInterface()")
         
-        homeDetailView.houseImage.image = UIImage(named: "houseImg")
-        homeDetailView.addressLabel.text = viewModel.homeDetail?.streetAddress
-        homeDetailView.municipalityAreaLabel.text = String("\(viewModel.homeDetail?.area), \(viewModel.homeDetail?.municipality)" )
-        homeDetailView.askingPriceLabel.text = String(viewModel.homeDetail?.askingPrice ?? 0)
-        homeDetailView.homeDescriptionLabel.text = viewModel.homeDetail?.homeDescription
-        homeDetailView.livingAreaLabel.text = String(viewModel.homeDetail?.livingArea ?? 0)
-        homeDetailView.numberOfRoomsLabel.text = String(viewModel.homeDetail?.numberOfRooms ?? 0)
-        homeDetailView.patioLabel.text = viewModel.homeDetail?.patio
-        homeDetailView.daysSincePublishLabel.text = String(viewModel.homeDetail?.daysSincePublish ?? 0)
+        DispatchQueue.main.async() { [weak self] in
+            print("HomeDetailViewController - updateInterface()")
+            
+            self?.homeDetailView.houseImage.image = UIImage(named: "houseImg")
+            self?.homeDetailView.addressLabel.text = self?.viewModel.homeDetail?.streetAddress
+            self?.homeDetailView.municipalityAreaLabel.text = String("\(self?.viewModel.homeDetail?.area), \(self?.viewModel.homeDetail?.municipality)" )
+            self?.homeDetailView.askingPriceLabel.text = String(self?.viewModel.homeDetail?.askingPrice ?? 0)
+            self?.homeDetailView.homeDescriptionLabel.text = self?.viewModel.homeDetail?.homeDescription
+            self?.homeDetailView.livingAreaLabel.text = String(self?.viewModel.homeDetail?.livingArea ?? 0)
+            self?.homeDetailView.numberOfRoomsLabel.text = String(self?.viewModel.homeDetail?.numberOfRooms ?? 0)
+            self?.homeDetailView.patioLabel.text = self?.viewModel.homeDetail?.patio
+            self?.homeDetailView.daysSincePublishLabel.text = String(self?.viewModel.homeDetail?.daysSincePublish ?? 0)
+
+        }
     }
         
 }
