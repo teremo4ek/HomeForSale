@@ -1,5 +1,5 @@
 //
-//  NetworkDataManager.swift
+//  NetworkDataDelegate.swift
 //  HomeForSale
 //
 //  Created by Yury Bely on 25.05.2022.

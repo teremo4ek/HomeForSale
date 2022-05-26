@@ -9,13 +9,13 @@ import Foundation
 
 final class HomesViewModel {
     private var selectedIndexPath: IndexPath?
-    private var dataManager: NetworkDataManager!
+    private var dataManager: DataManager!
     
     weak var delegate: NetworkDataDelegate?
     
     private var homeList: [HomeCell] = []
     
-    init(dataManager: NetworkDataManager) {
+    init(dataManager: DataManager) {
         self.dataManager = dataManager
         self.dataManager?.onCompletionHomeList = { [weak self] homeList in
             guard let self = self else { return }

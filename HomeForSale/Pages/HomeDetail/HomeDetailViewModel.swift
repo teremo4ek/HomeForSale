@@ -8,13 +8,13 @@
 import Foundation
 
 final class HomeDetailViewModel {
-    private var dataManager: NetworkDataManager!
+    private var dataManager: DataManager!
     
     weak var delegate: NetworkDataDelegate?
     
     var homeDetail: HomeDetail?
     
-    init(dataManager: NetworkDataManager) {
+    init(dataManager: DataManager) {
         self.dataManager = dataManager
         self.dataManager?.onCompletionHomeDetail = { [weak self] homeDetail in
             guard let self = self else { return }

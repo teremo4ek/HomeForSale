@@ -16,7 +16,7 @@ final class HomeDetailCoordinator: Coordinator {
     }
     
     func start() {
-        let dataManager = NetworkDataManager(testMode: true)
+        let dataManager = DataManager(testMode: true)
         let viewModel = HomeDetailViewModel(dataManager: dataManager)
         let viewController = HomeDetailViewController()
         viewController.viewModel = viewModel
