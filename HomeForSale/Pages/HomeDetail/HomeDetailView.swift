@@ -159,16 +159,18 @@ class HomeDetailView: UIView {
         livingAreaTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
 
         livingAreaLabel.autoAlignAxis(.horizontal, toSameAxisOf: livingAreaTitel)
-        livingAreaLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
         livingAreaLabel.autoPinEdge(.leading, to: .trailing, of: livingAreaTitel, withOffset: minPadding)
+        livingAreaLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
+        livingAreaLabel.setContentHuggingPriority(.defaultLow-1, for: .horizontal)
         
-        
+
         numberOfRoomsTitel.autoPinEdge(.top, to: .bottom, of: livingAreaLabel, withOffset: minPadding)
         numberOfRoomsTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
         
         numberOfRoomsLabel.autoAlignAxis(.horizontal, toSameAxisOf: numberOfRoomsTitel)
         numberOfRoomsLabel.autoPinEdge(.leading, to: .trailing, of: numberOfRoomsTitel, withOffset: minPadding)
         numberOfRoomsLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
+        numberOfRoomsLabel.setContentHuggingPriority(.defaultLow-1, for: .horizontal)
         
         patioTitel.autoPinEdge(.top, to: .bottom, of: numberOfRoomsLabel, withOffset: minPadding)
         patioTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
@@ -176,6 +178,7 @@ class HomeDetailView: UIView {
         patioLabel.autoAlignAxis(.horizontal, toSameAxisOf: patioTitel)
         patioLabel.autoPinEdge(.leading, to: .trailing, of: patioTitel, withOffset: minPadding)
         patioLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
+        patioLabel.setContentHuggingPriority(.defaultLow-1, for: .horizontal)
         
         daysSincePublishTitel.autoPinEdge(.top, to: .bottom, of: patioLabel, withOffset: minPadding)
         daysSincePublishTitel.autoPinEdge(toSuperviewSafeArea: .leading, withInset: smallPadding)
@@ -184,6 +187,7 @@ class HomeDetailView: UIView {
         daysSincePublishLabel.autoAlignAxis(.horizontal, toSameAxisOf: daysSincePublishTitel)
         daysSincePublishLabel.autoPinEdge(.leading, to: .trailing, of: daysSincePublishTitel, withOffset: minPadding)
         daysSincePublishLabel.autoPinEdge(toSuperviewSafeArea: .trailing, withInset: smallPadding)
+        daysSincePublishLabel.setContentHuggingPriority(.defaultLow-1, for: .horizontal)
         
         
        

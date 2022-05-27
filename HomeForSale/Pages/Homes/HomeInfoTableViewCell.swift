@@ -93,6 +93,7 @@ class HomeInfoTableViewCell: UITableViewCell {
         addressLabel.autoPinEdge(.top, to: .bottom, of: houseImage, withOffset: smallPadding)
         addressLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
         addressLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        addressLabel.setContentHuggingPriority(.defaultLow-1, for: .vertical)
         
         municipalityLabel.autoPinEdge(.top, to: .bottom, of: addressLabel, withOffset: minPadding)
         municipalityLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
@@ -106,11 +107,13 @@ class HomeInfoTableViewCell: UITableViewCell {
         priceLabel.autoAlignAxis(.horizontal, toSameAxisOf: livingAreaLabel)
         priceLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: smallPadding)
         priceLabel.autoPinEdge(.trailing, to: .leading, of: livingAreaLabel, withOffset: smallPadding)
+        priceLabel.setContentHuggingPriority(.defaultLow-1, for: .horizontal)
 
         
         numberOfRoomsLabel.autoAlignAxis(.horizontal, toSameAxisOf: livingAreaLabel)
         numberOfRoomsLabel.autoPinEdge(.leading, to: .trailing, of: livingAreaLabel, withOffset: smallPadding)
         numberOfRoomsLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: smallPadding)
+        numberOfRoomsLabel.setContentHuggingPriority(.defaultLow-1, for: .horizontal)
         
         super.updateConstraints()
     }

@@ -41,11 +41,10 @@ class HomesViewController: UIViewController {
     
     // MARK -- Update Interface
     private func updateInterface() {
-        print("MainTableViewController - updateInterface()")
-//        DispatchQueue.main.async() { [weak self] in
-//            print("MainTableViewController - updateInterface()")
-//
-//        }
+        DispatchQueue.main.async() { [weak self] in
+            print("MainTableViewController - updateInterface()")
+            self?.homesView.tableView.reloadData()
+        }
     }
 }
 
