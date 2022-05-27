@@ -9,11 +9,11 @@ import Foundation
 
 final class HomeDetailViewModel {
     private var dataManager: DataManager!
-    
+
     weak var delegate: NetworkDataDelegate?
-    
+
     var homeDetail: HomeDetail?
-    
+
     init(dataManager: DataManager) {
         self.dataManager = dataManager
         self.dataManager?.onCompletionHomeDetail = { [weak self] homeDetail in
@@ -23,7 +23,11 @@ final class HomeDetailViewModel {
             self.delegate?.onComplition()
         }
     }
-    
+
+    deinit {
+        print("Freeing up the HomeDetailViewModel")
+    }
+
     func fetchData() {
         dataManager?.fetchData(forRequestType: .homeDetail)
     }

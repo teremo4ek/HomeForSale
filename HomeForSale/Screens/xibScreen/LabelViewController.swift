@@ -10,20 +10,19 @@ import UIKit
 class LabelViewController: UIViewController {
 
     var viewModel: LabelViewModel!
-    
+
     @IBOutlet private(set) weak var titleLabel: UILabel!
     @IBOutlet private(set) weak var okButton: UIButton!
     @IBOutlet private(set) weak var slider: UISlider!
-    
+
     @IBAction private func okPressed() {
         titleLabel.text = "Button pressed!"
     }
-    
+
     @IBAction private func sliderValueChanged(_ sender: UISlider) {
         titleLabel.text = String(format: "Slider %.1f", sender.value)
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

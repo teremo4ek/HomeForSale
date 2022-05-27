@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class HomesInfoTableCoordinator : Coordinator {
+final class HomesInfoTableCoordinator: Coordinator {
     var presentingController: UINavigationController?
-    
+
     init(presentingController: UINavigationController?) {
         self.presentingController = presentingController
     }
-    
+
     func start() {
         let dataManager = DataManager(testMode: true)
         let viewModel = HomesViewModel(dataManager: dataManager)

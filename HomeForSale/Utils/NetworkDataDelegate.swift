@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol NetworkDataDelegate : AnyObject {
+protocol NetworkDataDelegate: AnyObject {
     func onComplition()
 }

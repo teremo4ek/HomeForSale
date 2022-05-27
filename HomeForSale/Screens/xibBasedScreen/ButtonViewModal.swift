@@ -8,8 +8,7 @@
 import Foundation
 
 final class ButtonViewModel {
-    
+
     let title = "ButtonView controller"
     let okBtnTitle = "Ok!!"
 }
-

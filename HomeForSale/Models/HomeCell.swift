@@ -18,10 +18,10 @@ struct HomeCell {
     let ratingFormatted: String?
     let averagePrice: Int?
     let imageUrl: String
-    
+
     var imageDownloaded: Bool
     var imageData: Data?
-    
+
     init?(homeItem: HomeItm) {
         type = homeItem.type
         id = homeItem.id
@@ -36,7 +36,7 @@ struct HomeCell {
         ratingFormatted = homeItem.ratingFormatted
         averagePrice = homeItem.averagePrice
         imageUrl = homeItem.image
-        
+
         imageDownloaded = false
         imageData = nil
     }

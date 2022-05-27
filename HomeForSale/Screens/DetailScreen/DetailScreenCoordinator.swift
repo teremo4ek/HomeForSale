@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-final class DetailScreenCoordinator : Coordinator {
+final class DetailScreenCoordinator: Coordinator {
     var presentingController: UINavigationController?
-    
+
     init(presentingController: UINavigationController?) {
         self.presentingController = presentingController
     }
-    
+
     func start() {
         let viewModel = DetailScreenViewModel()
         let viewController = DetailScreenViewController()
