@@ -9,4 +9,5 @@ import Foundation
 
 protocol NetworkDataDelegate: AnyObject {
     func onComplition()
+    func onHomeInfoCellUpdated(url: String)
 }

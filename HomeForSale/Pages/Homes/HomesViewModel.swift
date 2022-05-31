@@ -23,6 +23,11 @@ final class HomesViewModel {
             self.homeList = homeList
             self.delegate?.onComplition()
         }
+
+        self.dataManager?.onCompletionImage = { [weak self] data, imageUrl in
+            print("HomesViewModel onCompletionImage, url = \(imageUrl)")
+            self?.updateHomeList(data: data, imageUrl: imageUrl)
+        }
     }
 
     func numberOfRows() -> Int {
@@ -30,8 +35,11 @@ final class HomesViewModel {
     }
 
     func cellViewModel(forIndexPath indexPath: IndexPath) -> HomeInfoCellViewModel? {
-        let home = homeList[indexPath.row]
-        return HomeInfoCellViewModel(home: home)
+        let homeCell = homeList[indexPath.row]
+        if !homeCell.imageDownloaded {
+            downloadImages(cell: homeCell)
+        }
+        return HomeInfoCellViewModel(home: homeCell)
     }
 
     func selectRow(atIndexPath indexPath: IndexPath) {
@@ -40,5 +48,21 @@ final class HomesViewModel {
 
     func fetchData() {
         dataManager?.fetchData(forRequestType: .homeList)
+    }
+
+    // MARK: - Download Image by URL
+    private func downloadImages(cell: HomeCell) {
+        dataManager?.downloadImage(cell.imageUrl)
+    }
+
+    private func updateHomeList(data: Data?, imageUrl: String) {
+        guard let data = data else { return }
+
+        for cell in homeList {
+            if cell.imageUrl == imageUrl {
+                cell.imageData = data
+                cell.imageDownloaded = true
+            }
+        }
     }
 }

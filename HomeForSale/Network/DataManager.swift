@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 // class for download json and images throw internet or localy
 class DataManager {
@@ -8,8 +9,18 @@ class DataManager {
     var onCompletionHomeDetail: ((HomeDetail) -> Void)?
     var onCompletionImage: ((Data?, String) -> Void)?
 
-    init(testMode: Bool = false) {
-        self.isTestMode = false
+    private static var sharedDataManager: DataManager = {
+        let dataManager = DataManager(testMode: false)
+            return dataManager
+        }()
+
+    private init(testMode: Bool = false) {
+        self.isTestMode = testMode
+    }
+
+    // MARK: - Accessors
+    class func shared() -> DataManager {
+        return sharedDataManager
     }
 
     enum RequestType {
@@ -72,7 +83,8 @@ class DataManager {
     private func fetchJson(fromURLString urlString: String,
                            completion: @escaping (Result<Data, Error>) -> Void) {
         if let url = URL(string: urlString) {
-            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, _, error) in
+            let session = URLSession(configuration: .default)
+            let urlSessionTask = session.dataTask(with: url) { (data, _, error) in
                 if let error = error {
                     completion(.failure(error))
                 }
@@ -80,8 +92,10 @@ class DataManager {
                 if let data = data {
                     completion(.success(data))
                 }
+
+                session.invalidateAndCancel()
             }
-            urlSession.resume()
+            urlSessionTask.resume()
         }
     }
 
@@ -116,4 +130,25 @@ class DataManager {
             self.onCompletionHomeDetail?(homeDetail)
         }
     }
+
+    // MARK: - Download Images
+
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+
+    func downloadImage(_ imageUrl: String) {
+
+        guard let url = URL(string: imageUrl) else { return }
+
+        print("Download Image Started url = \(url.absoluteString)")
+        getData(from: url) { [weak self] data, response, error in
+            guard let data = data, error == nil else { return }
+
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            self?.onCompletionImage?(data, imageUrl)
+        }
+    }
+
 }

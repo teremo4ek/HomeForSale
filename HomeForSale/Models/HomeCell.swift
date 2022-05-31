@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HomeCell {
+class HomeCell {
     let type, id: String
     let askingPrice: Int?
     let municipality: String?
@@ -19,8 +19,12 @@ struct HomeCell {
     let averagePrice: Int?
     let imageUrl: String
 
-    var imageDownloaded: Bool
     var imageData: Data?
+    var imageDownloaded: Bool {
+        didSet {
+
+        }
+    }
 
     init?(homeItem: HomeItm) {
         type = homeItem.type

@@ -57,4 +57,7 @@ extension HomeDetailViewController: NetworkDataDelegate {
         self.updateInterface()
     }
 
+    func onHomeInfoCellUpdated(url: String) {
+
+    }
 }

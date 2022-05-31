@@ -15,7 +15,7 @@ final class HomesInfoTableCoordinator: Coordinator {
     }
 
     func start() {
-        let dataManager = DataManager(testMode: true)
+        let dataManager = DataManager.shared()
         let viewModel = HomesViewModel(dataManager: dataManager)
         let viewController = HomesViewController()
         viewController.viewModel = viewModel

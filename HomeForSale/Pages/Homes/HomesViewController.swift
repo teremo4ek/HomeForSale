@@ -29,12 +29,10 @@ class HomesViewController: UIViewController {
         homesView.tableView.register(HomeInfoTableViewCell.self, forCellReuseIdentifier: homeInfoCellReuseIdentifier)
 
         viewModel?.delegate = self
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        viewModel?.fetchData()
+        DispatchQueue.global(qos: .default).async { [weak self] in
+            self?.viewModel?.fetchData()
+        }
     }
 
     deinit {
@@ -46,6 +44,13 @@ class HomesViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             print("MainTableViewController - updateInterface()")
             self?.homesView.tableView.reloadData()
+        }
+    }
+
+    private func updateRow( _ index: Int) {
+        DispatchQueue.main.async { [weak self] in
+            print("MainTableViewController - updateRow \(index)")
+            self?.homesView.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
         }
     }
 }
@@ -80,5 +85,9 @@ extension HomesViewController: UITableViewDelegate {
 extension HomesViewController: NetworkDataDelegate {
     func onComplition() {
         self.updateInterface()
+    }
+
+    func onHomeInfoCellUpdated(url: String) {
+        // self.updateRow(index)
     }
 }
