@@ -14,6 +14,7 @@ struct HomeDetail {
     let municipality, area: String
     let daysSincePublish, livingArea, numberOfRooms: Int
     let streetAddress: String
+    let imageUrl: String
     let homeDescription, patio: String
 
     var imageDownloaded: Bool
@@ -31,6 +32,7 @@ struct HomeDetail {
         streetAddress = homeDescription.streetAddress
         self.homeDescription = homeDescription.homeDescription
         patio = homeDescription.patio
+        imageUrl = homeDescription.image
 
         imageDownloaded = false
         imageData = nil

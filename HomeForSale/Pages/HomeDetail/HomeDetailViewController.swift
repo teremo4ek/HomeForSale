@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeDetailViewController: UIViewController {
 
@@ -36,16 +37,17 @@ class HomeDetailViewController: UIViewController {
 
         DispatchQueue.main.async { [weak self] in
             print("HomeDetailViewController - updateInterface()")
+            guard let self = self else { return }
 
-            self?.homeDetailView.houseImage.image = UIImage(named: "houseImg")
-            self?.homeDetailView.addressLabel.text = self?.viewModel.homeDetail?.streetAddress
-            self?.homeDetailView.municipalityAreaLabel.text = String("\(self?.viewModel.homeDetail?.area), \(self?.viewModel.homeDetail?.municipality)" )
-            self?.homeDetailView.askingPriceLabel.text = String(self?.viewModel.homeDetail?.askingPrice ?? 0)
-            self?.homeDetailView.homeDescriptionLabel.text = self?.viewModel.homeDetail?.homeDescription
-            self?.homeDetailView.livingAreaLabel.text = String(self?.viewModel.homeDetail?.livingArea ?? 0)
-            self?.homeDetailView.numberOfRoomsLabel.text = String(self?.viewModel.homeDetail?.numberOfRooms ?? 0)
-            self?.homeDetailView.patioLabel.text = self?.viewModel.homeDetail?.patio
-            self?.homeDetailView.daysSincePublishLabel.text = String(self?.viewModel.homeDetail?.daysSincePublish ?? 0)
+            self.homeDetailView.houseImage.sd_setImage(with: URL(string: self.viewModel.imageUrl))
+            self.homeDetailView.addressLabel.text = self.viewModel.streetAddress
+            self.homeDetailView.municipalityAreaLabel.text = self.viewModel.homeDescription
+            self.homeDetailView.askingPriceLabel.text = String(self.viewModel.askingPrice)
+            self.homeDetailView.homeDescriptionLabel.text = self.viewModel.homeDescription
+            self.homeDetailView.livingAreaLabel.text = String(self.viewModel.livingArea)
+            self.homeDetailView.numberOfRoomsLabel.text = String(self.viewModel.numberOfRooms)
+            self.homeDetailView.patioLabel.text = self.viewModel.patio
+            self.homeDetailView.daysSincePublishLabel.text = String(self.viewModel.daysSincePublish)
 
         }
     }

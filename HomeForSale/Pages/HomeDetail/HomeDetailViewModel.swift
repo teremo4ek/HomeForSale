@@ -31,4 +31,40 @@ final class HomeDetailViewModel {
     func fetchData() {
         dataManager?.fetchData(forRequestType: .homeDetail)
     }
+
+    var imageUrl: String {
+        return homeDetail?.imageUrl ?? ""
+    }
+
+    var streetAddress: String {
+        return homeDetail?.streetAddress ?? ""
+    }
+
+    var municipalityArea: String {
+        return String("\(homeDetail?.area), \(homeDetail?.municipality)")
+    }
+
+    var askingPrice: Int {
+        return homeDetail?.askingPrice ?? 0
+    }
+
+    var homeDescription: String {
+        return homeDetail?.homeDescription ?? ""
+    }
+
+    var livingArea: Int {
+        return homeDetail?.livingArea ?? 0
+    }
+
+    var numberOfRooms: Int {
+        return homeDetail?.numberOfRooms ?? 0
+    }
+
+    var patio: String {
+        return homeDetail?.patio ?? "false"
+    }
+
+    var daysSincePublish: Int {
+        return homeDetail?.daysSincePublish ?? 0
+    }
 }

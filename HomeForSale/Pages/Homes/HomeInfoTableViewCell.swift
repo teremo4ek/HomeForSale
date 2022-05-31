@@ -43,6 +43,8 @@ class HomeInfoTableViewCell: UITableViewCell {
         let imageView = UIImageView(forAutoLayout: ())
         imageView.layer.borderWidth = 3.0
         imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
 

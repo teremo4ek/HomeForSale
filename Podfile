@@ -7,5 +7,6 @@ target 'HomeForSale' do
 
   # Pods for HomeForSale
   pod 'PureLayout'
+  pod 'SDWebImage'
 
 end
