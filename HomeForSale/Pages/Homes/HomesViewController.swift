@@ -47,11 +47,19 @@ class HomesViewController: UIViewController {
         }
     }
 
-    private func updateRow( _ index: Int) {
-        DispatchQueue.main.async { [weak self] in
-            print("MainTableViewController - updateRow \(index)")
-            self?.homesView.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+    private func updateRows( _ indexes: [Int]) {
+        if !indexes.isEmpty {
+            DispatchQueue.main.async { [weak self] in
+                var indexPaths = [IndexPath]()
+                for index in indexes {
+                    indexPaths.append(IndexPath(row: index, section: 0))
+                    print("MainTableViewController - updateRow \(index)")
+                }
+
+                self?.homesView.tableView.reloadRows(at: indexPaths, with: .none)
+            }
         }
+
     }
 }
 
@@ -87,7 +95,7 @@ extension HomesViewController: NetworkDataDelegate {
         self.updateInterface()
     }
 
-    func onHomeInfoCellUpdated(url: String) {
-        // self.updateRow(index)
+    func onHomeInfoCellUpdated(indexes: [Int]) {
+        self.updateRows(indexes)
     }
 }

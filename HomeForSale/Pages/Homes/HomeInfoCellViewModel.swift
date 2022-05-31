@@ -37,4 +37,12 @@ final class HomeInfoCellViewModel {
     var municipalityArea: String {
         return  String("\(home.municipality), \(home.area)")
     }
+
+    var isImageDownloaded: Bool {
+        return home.imageDownloaded
+    }
+
+    var imageData: Data? {
+        return home.imageData
+    }
 }

@@ -58,11 +58,17 @@ final class HomesViewModel {
     private func updateHomeList(data: Data?, imageUrl: String) {
         guard let data = data else { return }
 
+        var indexes = [Int]()
+
+        var index = 0
         for cell in homeList {
             if cell.imageUrl == imageUrl {
                 cell.imageData = data
                 cell.imageDownloaded = true
+                indexes.append(index)
             }
+            index += 1
         }
+        delegate?.onHomeInfoCellUpdated(indexes: indexes)
     }
 }

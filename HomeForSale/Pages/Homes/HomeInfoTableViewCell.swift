@@ -20,14 +20,23 @@ class HomeInfoTableViewCell: UITableViewCell {
     }
 
     private func updateElements() {
-        houseImage.image = UIImage(named: "houseImg")
         addressLabel.text = viewModel?.address
         municipalityLabel.text = viewModel?.municipalityArea
         priceLabel.text = String(viewModel?.price ?? 0)
         livingAreaLabel.text = String(viewModel?.livingArea ?? 0)
         numberOfRoomsLabel.text = String(viewModel?.numberOfRooms ?? 0)
 
+        updateImage()
+
         setNeedsUpdateConstraints()
+    }
+
+    private func updateImage() {
+        guard let data = viewModel?.imageData, let viewModel = viewModel else { return }
+        if viewModel.isImageDownloaded {
+            houseImage.image = UIImage(data: data)
+        }
+
     }
 
     lazy var houseImage: UIImageView = {
