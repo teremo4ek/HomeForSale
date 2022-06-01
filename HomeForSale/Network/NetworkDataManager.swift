@@ -9,8 +9,8 @@ import Foundation
 
 final class NetworkDataManager: DataManagerProtocol {
 
-    func fetchJson(_ path: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        if let url = URL(string: path) {
+    func fetchJson(forType type: RequestType, completion: @escaping (Result<Data, Error>) -> Void) {
+        if let url = URL(string: type.urlString) {
             let session = URLSession(configuration: .default)
             let urlSessionTask = session.dataTask(with: url) { (data, _, error) in
                 if let error = error {
@@ -40,14 +40,14 @@ final class NetworkDataManager: DataManagerProtocol {
                 print("Download Finished")
 
                 if let urlError = error as? URLError {
-                  completion(.failure(urlError))
+                    completion(.failure(urlError))
                 }
 
                 if let data = data {
-                  completion(.success(data))
+                    completion(.success(data))
                 }
 
-              }.resume()
+            }.resume()
         } else {
             completion(.failure(NetworkError.badURL))
         }

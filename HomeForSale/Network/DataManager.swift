@@ -3,19 +3,19 @@ import UIKit
 
 // class for download json and images throw internet or localy
 class DataManager {
-    private var isTestMode: Bool = false
+    private let manager: DataManagerProtocol
 
     var onCompletionHomeList: (([HomeCell]) -> Void)?
     var onCompletionHomeDetail: ((HomeDetail) -> Void)?
     var onCompletionImage: ((Data?, String) -> Void)?
 
     private static var sharedDataManager: DataManager = {
-        let dataManager = DataManager(testMode: false)
+        let dataManager = DataManager(NetworkDataManager())
             return dataManager
         }()
 
-    private init(testMode: Bool = false) {
-        self.isTestMode = testMode
+    private init(_ dataManager: DataManagerProtocol) {
+        manager = dataManager
     }
 
     // MARK: - Accessors
@@ -23,81 +23,31 @@ class DataManager {
         return sharedDataManager
     }
 
-    enum RequestType {
-        case homeList
-        case homeDetail
+    func fetchData(forRequestType requestType: RequestType) {
 
-        var urlString: String {
-            switch self {
-            case .homeList:
-                return Constants.UrlHomeList
-
-            case .homeDetail:
-                return Constants.UrlHomeDetail
-            }
-        }
-
-        var filePath: String {
-            switch self {
-            case .homeList :
-                return "HomesInfo"
-            case .homeDetail:
-                return "HomeDetail"
+        manager.fetchJson(forType: requestType) { [weak self] result in
+            do {
+                let loadData  = try result.get()
+                self?.analizaData(loadData: loadData, type: requestType)
+            } catch {
+                print("fetchData error: \(error.localizedDescription)")
             }
         }
     }
 
-    func fetchData(forRequestType requestType: RequestType) {
-        if isTestMode {
-            let loadData = readLocalJson(forName: requestType.filePath)
-            analizaData(loadData: loadData, type: requestType)
-        } else {
-            fetchJson(fromURLString: requestType.urlString, completion: { [weak self] (result) in
-                do {
-                    let loadData  = try result.get()
-                    self?.analizaData(loadData: loadData, type: requestType)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            })
+    func downloadImage(_ imageUrl: String) {
+        manager.fetchDataImage(imageUrl) { [weak self] result in
+            do {
+                let imageData = try result.get()
+                self?.onCompletionImage?(imageData, imageUrl)
+
+              } catch {
+                  print("downloadImage error: \(error.localizedDescription)")
+              }
         }
     }
 
     // MARK: - Private
-
-    // read local json data
-    private func readLocalJson(forName name: String) -> Data? {
-        do {
-            if let bundlePath = Bundle.main.path(forResource: name,
-                                                 ofType: "json"),
-               let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-                return jsonData
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-        return nil
-    }
-
-    // fetch json data from internet
-    private func fetchJson(fromURLString urlString: String,
-                           completion: @escaping (Result<Data, Error>) -> Void) {
-        if let url = URL(string: urlString) {
-            let session = URLSession(configuration: .default)
-            let urlSessionTask = session.dataTask(with: url) { (data, _, error) in
-                if let error = error {
-                    completion(.failure(error))
-                }
-
-                if let data = data {
-                    completion(.success(data))
-                }
-
-                session.invalidateAndCancel()
-            }
-            urlSessionTask.resume()
-        }
-    }
 
     // parse json data
     private func parse<T: Decodable>(model: T.Type, jsonData: Data) -> T? {
@@ -130,25 +80,4 @@ class DataManager {
             self.onCompletionHomeDetail?(homeDetail)
         }
     }
-
-    // MARK: - Download Images
-
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-
-    func downloadImage(_ imageUrl: String) {
-
-        guard let url = URL(string: imageUrl) else { return }
-
-        print("Download Image Started url = \(url.absoluteString)")
-        getData(from: url) { [weak self] data, response, error in
-            guard let data = data, error == nil else { return }
-
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            self?.onCompletionImage?(data, imageUrl)
-        }
-    }
-
 }

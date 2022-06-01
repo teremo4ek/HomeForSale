@@ -11,8 +11,32 @@ enum NetworkError: Error {
     case badURL
 }
 
+enum RequestType {
+    case homeList
+    case homeDetail
+
+    var urlString: String {
+        switch self {
+        case .homeList:
+            return Constants.UrlHomeList
+
+        case .homeDetail:
+            return Constants.UrlHomeDetail
+        }
+    }
+
+    var filePath: String {
+        switch self {
+        case .homeList :
+            return "HomesInfo"
+        case .homeDetail:
+            return "HomeDetail"
+        }
+    }
+}
+
 protocol DataManagerProtocol {
-    func fetchJson(_ path: String, completion: @escaping (Result<Data, Error>) -> Void)
+    func fetchJson(forType type: RequestType, completion: @escaping (Result<Data, Error>) -> Void)
 
     func fetchDataImage(_ path: String, completion: @escaping (Result<Data, Error>) -> Void)
 }
