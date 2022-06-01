@@ -29,17 +29,17 @@ class MainView: UIView {
         addSubviews()
         setupConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: private func
-    
+
     private func addSubviews() {
         addSubview(buttonPureLayout)
     }
-    
+
     func setupConstraints() {
         buttonPureLayout.autoAlignAxis(toSuperviewAxis: .vertical)
         buttonPureLayout.autoPinEdge(toSuperviewEdge: .top, withInset: 200.0)

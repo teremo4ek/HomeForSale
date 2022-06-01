@@ -8,11 +8,10 @@
 import Foundation
 import UIKit
 
-final class ButtonView : UIView
-{
+final class ButtonView: UIView {
     @IBOutlet private(set) weak var titleLabel: UILabel!
     @IBOutlet private(set) weak var okButton: UIButton!
-    
+
     var onOkAction: (() -> Void)?
     @IBAction private func okPressed() {
         onOkAction?()

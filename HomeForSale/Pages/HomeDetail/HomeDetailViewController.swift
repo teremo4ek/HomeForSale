@@ -6,51 +6,60 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeDetailViewController: UIViewController {
 
     var viewModel: HomeDetailViewModel!
-    
+
     var homeDetailView: HomeDetailView {
         view as! HomeDetailView
     }
-    
+
     override func loadView() {
         view = HomeDetailView()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewModel?.delegate = self
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         viewModel?.fetchData()
     }
-    
-    // MARK -- Update Interface
+
+    // MARK: - - Update Interface
     private func updateInterface() {
-        print("HomeDetailViewController - updateInterface()")
-        
-        homeDetailView.houseImage.image = UIImage(named: "houseImg")
-        homeDetailView.addressLabel.text = viewModel.homeDetail?.streetAddress
-        homeDetailView.municipalityAreaLabel.text = String("\(viewModel.homeDetail?.area), \(viewModel.homeDetail?.municipality)" )
-        homeDetailView.askingPriceLabel.text = String(viewModel.homeDetail?.askingPrice ?? 0)
-        homeDetailView.homeDescriptionLabel.text = viewModel.homeDetail?.homeDescription
-        homeDetailView.livingAreaLabel.text = String(viewModel.homeDetail?.livingArea ?? 0)
-        homeDetailView.numberOfRoomsLabel.text = String(viewModel.homeDetail?.numberOfRooms ?? 0)
-        homeDetailView.patioLabel.text = viewModel.homeDetail?.patio
-        homeDetailView.daysSincePublishLabel.text = String(viewModel.homeDetail?.daysSincePublish ?? 0)
+
+        DispatchQueue.main.async { [weak self] in
+            print("HomeDetailViewController - updateInterface()")
+            guard let self = self else { return }
+
+            self.homeDetailView.houseImage.sd_setImage(with: URL(string: self.viewModel.imageUrl))
+            self.homeDetailView.addressLabel.text = self.viewModel.streetAddress
+            self.homeDetailView.municipalityAreaLabel.text = self.viewModel.homeDescription
+            self.homeDetailView.askingPriceLabel.text = String(self.viewModel.askingPrice)
+            self.homeDetailView.homeDescriptionLabel.text = self.viewModel.homeDescription
+            self.homeDetailView.livingAreaLabel.text = String(self.viewModel.livingArea)
+            self.homeDetailView.numberOfRoomsLabel.text = String(self.viewModel.numberOfRooms)
+            self.homeDetailView.patioLabel.text = self.viewModel.patio
+            self.homeDetailView.daysSincePublishLabel.text = String(self.viewModel.daysSincePublish)
+
+        }
     }
-        
+
 }
 
-extension HomeDetailViewController : NetworkDataDelegate {
+extension HomeDetailViewController: NetworkDataDelegate {
     func onComplition() {
         self.updateInterface()
     }
 
+    func onHomeInfoCellUpdated(indexes: [Int]) {
+
+    }
 }

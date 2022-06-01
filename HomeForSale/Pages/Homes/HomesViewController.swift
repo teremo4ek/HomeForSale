@@ -8,57 +8,70 @@
 import UIKit
 
 class HomesViewController: UIViewController {
-    
+
     private let homeInfoCellReuseIdentifier = "homeCellReuseIdentifier"
-    
+
     var viewModel: HomesViewModel!
-    
+
     var homesView: HomesView {
         view as! HomesView
     }
-    
-    
+
     override func loadView() {
         view = HomesView()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         homesView.tableView.delegate = self
         homesView.tableView.dataSource = self
         homesView.tableView.register(HomeInfoTableViewCell.self, forCellReuseIdentifier: homeInfoCellReuseIdentifier)
-        
+
         viewModel?.delegate = self
+
+        DispatchQueue.global(qos: .default).async { [weak self] in
+            self?.viewModel?.fetchData()
+        }
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel?.fetchData()
+
+    deinit {
+        print("Freeing up the HomesViewController")
     }
-    
-    // MARK -- Update Interface
+
+    // MARK: - - Update Interface
     private func updateInterface() {
-        print("MainTableViewController - updateInterface()")
-//        DispatchQueue.main.async() { [weak self] in
-//            print("MainTableViewController - updateInterface()")
-//
-//        }
+        DispatchQueue.main.async { [weak self] in
+            print("MainTableViewController - updateInterface()")
+            self?.homesView.tableView.reloadData()
+        }
+    }
+
+    private func updateRows( _ indexes: [Int]) {
+        if !indexes.isEmpty {
+            DispatchQueue.main.async { [weak self] in
+                var indexPaths = [IndexPath]()
+                for index in indexes {
+                    indexPaths.append(IndexPath(row: index, section: 0))
+                    print("MainTableViewController - updateRow \(index)")
+                }
+
+                self?.homesView.tableView.reloadRows(at: indexPaths, with: .none)
+            }
+        }
+
     }
 }
 
-extension HomesViewController : UITableViewDataSource {
-    
+extension HomesViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfRows() ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeInfoCellReuseIdentifier, for: indexPath) as! HomeInfoTableViewCell
 
-        
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
         cell.viewModel = cellViewModel
 
@@ -66,20 +79,23 @@ extension HomesViewController : UITableViewDataSource {
     }
 }
 
-extension HomesViewController : UITableViewDelegate {
-    
+extension HomesViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         print("Row: \(indexPath.row)")
-        
+
         let coordinator = HomeDetailCoordinator(presentingController: navigationController)
         coordinator.start()
     }
 }
 
-extension HomesViewController : NetworkDataDelegate {
+extension HomesViewController: NetworkDataDelegate {
     func onComplition() {
         self.updateInterface()
     }
 
+    func onHomeInfoCellUpdated(indexes: [Int]) {
+        self.updateRows(indexes)
+    }
 }

@@ -10,13 +10,13 @@ import UIKit
 
 final class HomeDetailCoordinator: Coordinator {
     var presentingController: UINavigationController?
-    
+
     init(presentingController: UINavigationController?) {
         self.presentingController = presentingController
     }
-    
+
     func start() {
-        let dataManager = NetworkDataManager(testMode: true)
+        let dataManager = DataManager.shared()
         let viewModel = HomeDetailViewModel(dataManager: dataManager)
         let viewController = HomeDetailViewController()
         viewController.viewModel = viewModel
