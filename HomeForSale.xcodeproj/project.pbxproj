@@ -33,6 +33,12 @@
 		1A46D0B2284652AB005DBF7E /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46D0B1284652AB005DBF7E /* LocalDataManager.swift */; };
 		1A46D0B428465328005DBF7E /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46D0B328465328005DBF7E /* DataManagerProtocol.swift */; };
 		1A46D0B6284655C6005DBF7E /* NetworkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46D0B5284655C6005DBF7E /* NetworkDataManager.swift */; };
+		1A5F44F72848C71600BC8C2E /* CacheCollectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44F62848C71600BC8C2E /* CacheCollectionCoordinator.swift */; };
+		1A5F44F92848C7A900BC8C2E /* CacheCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44F82848C7A900BC8C2E /* CacheCollectionViewModel.swift */; };
+		1A5F44FB2848C7BF00BC8C2E /* CacheCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44FA2848C7BF00BC8C2E /* CacheCollectionView.swift */; };
+		1A5F44FD2848C81500BC8C2E /* CacheCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44FC2848C81500BC8C2E /* CacheCollectionViewController.swift */; };
+		1A5F44FF2848F72900BC8C2E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44FE2848F72900BC8C2E /* CollectionViewCell.swift */; };
+		1A5F45012848F75D00BC8C2E /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F45002848F75D00BC8C2E /* CollectionCellViewModel.swift */; };
 		1AB31B13283B78F00027C338 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB31B12283B78F00027C338 /* MainController.swift */; };
 		1AC51861283B956C00D0E658 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51860283B956C00D0E658 /* MainView.swift */; };
 		1AC51864283B9F7000D0E658 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51863283B9F7000D0E658 /* HomesViewController.swift */; };
@@ -82,6 +88,12 @@
 		1A46D0B1284652AB005DBF7E /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		1A46D0B328465328005DBF7E /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
 		1A46D0B5284655C6005DBF7E /* NetworkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataManager.swift; sourceTree = "<group>"; };
+		1A5F44F62848C71600BC8C2E /* CacheCollectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionCoordinator.swift; sourceTree = "<group>"; };
+		1A5F44F82848C7A900BC8C2E /* CacheCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionViewModel.swift; sourceTree = "<group>"; };
+		1A5F44FA2848C7BF00BC8C2E /* CacheCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionView.swift; sourceTree = "<group>"; };
+		1A5F44FC2848C81500BC8C2E /* CacheCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionViewController.swift; sourceTree = "<group>"; };
+		1A5F44FE2848F72900BC8C2E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		1A5F45002848F75D00BC8C2E /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
 		1AB31B12283B78F00027C338 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		1AC51860283B956C00D0E658 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1AC51863283B9F7000D0E658 /* HomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
@@ -240,9 +252,23 @@
 			path = DetailScreen;
 			sourceTree = "<group>";
 		};
+		1A5F44F52848C6C600BC8C2E /* CacheCollection */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F44F62848C71600BC8C2E /* CacheCollectionCoordinator.swift */,
+				1A5F44FC2848C81500BC8C2E /* CacheCollectionViewController.swift */,
+				1A5F44F82848C7A900BC8C2E /* CacheCollectionViewModel.swift */,
+				1A5F44FA2848C7BF00BC8C2E /* CacheCollectionView.swift */,
+				1A5F44FE2848F72900BC8C2E /* CollectionViewCell.swift */,
+				1A5F45002848F75D00BC8C2E /* CollectionCellViewModel.swift */,
+			);
+			path = CacheCollection;
+			sourceTree = "<group>";
+		};
 		1AC5185E283B950C00D0E658 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				1A5F44F52848C6C600BC8C2E /* CacheCollection */,
 				1AC51874283E302700D0E658 /* HomeDetail */,
 				1AC51862283B9F1500D0E658 /* Homes */,
 				1AC5185F283B951900D0E658 /* MainPage */,
@@ -451,12 +477,16 @@
 				1A0FAA26282FB53200D9F8F1 /* AppDelegate.swift in Sources */,
 				1AC51873283CCE7700D0E658 /* HomeInfoCellViewModel.swift in Sources */,
 				1AC5187A283E351100D0E658 /* HomeDetailViewController.swift in Sources */,
+				1A5F44F72848C71600BC8C2E /* CacheCollectionCoordinator.swift in Sources */,
 				1A46D0B2284652AB005DBF7E /* LocalDataManager.swift in Sources */,
 				1A29B53A2835063900F86F02 /* HomeCell.swift in Sources */,
 				1A29B53E28352C1500F86F02 /* ButtonView.swift in Sources */,
 				1AC51887283E805A00D0E658 /* NetworkDataDelegate.swift in Sources */,
 				1AB31B13283B78F00027C338 /* MainController.swift in Sources */,
+				1A5F44FB2848C7BF00BC8C2E /* CacheCollectionView.swift in Sources */,
+				1A5F45012848F75D00BC8C2E /* CollectionCellViewModel.swift in Sources */,
 				1AC51878283E34DA00D0E658 /* HomeDetailViewModel.swift in Sources */,
+				1A5F44FD2848C81500BC8C2E /* CacheCollectionViewController.swift in Sources */,
 				1A29B55028363BC500F86F02 /* LabelViewController.swift in Sources */,
 				1AC51861283B956C00D0E658 /* MainView.swift in Sources */,
 				1A0FAA3D282FE0C200D9F8F1 /* HomeAPI.swift in Sources */,
@@ -468,6 +498,8 @@
 				1A29B55628364F7900F86F02 /* DetailScreenViewModel.swift in Sources */,
 				1A29B54B283639C200F86F02 /* LabelViewModel.swift in Sources */,
 				1A0FAA4F282FEE6200D9F8F1 /* Box.swift in Sources */,
+				1A5F44F92848C7A900BC8C2E /* CacheCollectionViewModel.swift in Sources */,
+				1A5F44FF2848F72900BC8C2E /* CollectionViewCell.swift in Sources */,
 				1A46D0B428465328005DBF7E /* DataManagerProtocol.swift in Sources */,
 				1AC5187C283E36FE00D0E658 /* HomeDetailView.swift in Sources */,
 				1A0FAA28282FB53200D9F8F1 /* SceneDelegate.swift in Sources */,
