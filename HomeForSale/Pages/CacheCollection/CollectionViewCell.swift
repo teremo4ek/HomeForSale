@@ -46,7 +46,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
 
     private func updateElements() {
-        print("CollectionViewCell: updateElements \(String(describing: viewModel?.photoID))")
+        // print("CollectionViewCell: updateElements \(String(describing: viewModel?.photoID))")
 
         // image.image = viewModel?.thumbnail ??  UIImage(named: "houseImg")
         image.image = viewModel?.largeImage ??  UIImage(systemName: "doc")
@@ -66,7 +66,7 @@ extension CollectionViewCell: NetworkDataDelegate {
     }
 
     func onImageDownloaded(id: String) {
-        print("CollectionViewCell.onImageDownloaded \(id)")
+        // print("CollectionViewCell.onImageDownloaded \(id)")
         DispatchQueue.main.async { [weak self] in
             self?.updateElements()
         }

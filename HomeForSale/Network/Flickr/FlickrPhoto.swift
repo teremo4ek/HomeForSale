@@ -78,9 +78,12 @@ class FlickrPhoto: Equatable {
                     return
                 }
 
-                let returnedImage = UIImage(data: data)
-                self.largeImage = returnedImage
-                completion(.success(self))
+                if let returnedImage = UIImage(data: data) {
+                    self.largeImage = returnedImage
+                    completion(.success(self))
+                } else {
+                    completion(.failure(Error.noData))
+                }
             }
         }
         .resume()

@@ -42,6 +42,7 @@
 		1A5F4506284A151E00BC8C2E /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4503284A151E00BC8C2E /* FlickrPhoto.swift */; };
 		1A5F4507284A151E00BC8C2E /* FlickrSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */; };
 		1A5F4508284A151E00BC8C2E /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4505284A151E00BC8C2E /* Flickr.swift */; };
+		1A9420B8284E364900B39B15 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9420B7284E364900B39B15 /* CacheManager.swift */; };
 		1AB31B13283B78F00027C338 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB31B12283B78F00027C338 /* MainController.swift */; };
 		1AC51861283B956C00D0E658 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51860283B956C00D0E658 /* MainView.swift */; };
 		1AC51864283B9F7000D0E658 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51863283B9F7000D0E658 /* HomesViewController.swift */; };
@@ -100,6 +101,7 @@
 		1A5F4503284A151E00BC8C2E /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearchResults.swift; sourceTree = "<group>"; };
 		1A5F4505284A151E00BC8C2E /* Flickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
+		1A9420B7284E364900B39B15 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		1AB31B12283B78F00027C338 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		1AC51860283B956C00D0E658 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1AC51863283B9F7000D0E658 /* HomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		1A29B5342833D08900F86F02 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1A9420B6284E362C00B39B15 /* Cache */,
 				1A5F4502284A14D000BC8C2E /* Flickr */,
 				1A3716CC283FAA0B00585907 /* DataManager.swift */,
 				1A46D0B328465328005DBF7E /* DataManagerProtocol.swift */,
@@ -280,6 +283,14 @@
 				1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */,
 			);
 			path = Flickr;
+			sourceTree = "<group>";
+		};
+		1A9420B6284E362C00B39B15 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420B7284E364900B39B15 /* CacheManager.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		1AC5185E283B950C00D0E658 /* Pages */ = {
@@ -487,6 +498,7 @@
 				1A29B545283534B900F86F02 /* XibButtonViewCoordinator.swift in Sources */,
 				1A29B54028352F9900F86F02 /* ButtonViewController.swift in Sources */,
 				1A29B5422835342E00F86F02 /* ButtonViewModal.swift in Sources */,
+				1A9420B8284E364900B39B15 /* CacheManager.swift in Sources */,
 				1AC51871283CCCB500D0E658 /* HomesViewModel.swift in Sources */,
 				1A29B5492836393100F86F02 /* XibLabelViewCoordinator.swift in Sources */,
 				1A0FAA57283262F100D9F8F1 /* TypeCell.swift in Sources */,
