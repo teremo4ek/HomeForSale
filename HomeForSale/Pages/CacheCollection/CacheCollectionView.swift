@@ -26,6 +26,13 @@ class CacheCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func updateCollectionView() {
+        DispatchQueue.main.async { [weak self] in
+            print("CacheCollectionView - updateCollectionView()")
+            self?.collectionView.reloadData()
+        }
+    }
+
     private func addSubviews() {
         addSubview(collectionView)
     }

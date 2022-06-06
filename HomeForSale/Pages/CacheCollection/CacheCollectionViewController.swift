@@ -10,6 +10,7 @@ import UIKit
 class CacheCollectionViewController: UIViewController {
 
     private let collectionCellReuseIdentifier = "collectionCellReuseIdentifier"
+    let searchController = UISearchController(searchResultsController: nil)
     private let itemsPerRow: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 
@@ -26,6 +27,12 @@ class CacheCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        searchController.searchBar.placeholder = "Search...."
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+
         cacheCollectionView.collectionView.delegate = self
         cacheCollectionView.collectionView.dataSource = self
         cacheCollectionView.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: collectionCellReuseIdentifier)
@@ -33,7 +40,7 @@ class CacheCollectionViewController: UIViewController {
         viewModel?.delegate = self
 
         DispatchQueue.global(qos: .default).async { [weak self] in
-            self?.viewModel?.fetchData()
+            self?.viewModel?.fetchData(text: "house")
         }
     }
 
@@ -43,20 +50,19 @@ class CacheCollectionViewController: UIViewController {
 
     // MARK: - - Update Interface
     private func updateInterface() {
-//        DispatchQueue.main.async { [weak self] in
-//            print("CacheCollectionViewController - updateInterface()")
-//        }
+        print("CacheCollectionViewController - updateInterface()")
+        cacheCollectionView.updateCollectionView()
     }
 }
 
 extension CacheCollectionViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return viewModel.numberOfSearchesPhrases()
       }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.numberOfItemsInSection(section: section)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,11 +98,44 @@ extension CacheCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension CacheCollectionViewController: NetworkDataDelegate {
+    func onImageDownloaded(id: String) {
+
+    }
+
     func onComplition() {
         self.updateInterface()
     }
 
     func onHomeInfoCellUpdated(indexes: [Int]) {
+
+    }
+}
+
+// MARK: - SearchControllerDelegate extension
+extension CacheCollectionViewController: UISearchControllerDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarCancelButtonClicked")
+    }
+}
+
+// MARK: - SearchBarDelegate extension
+extension CacheCollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            print("searchBar text is empty")
+            return
+        }
+        // print("searchBar text: \"\(searchText)\" ")
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("searchBarTextDidEndEditing text: \"\(String(describing: searchBar.text))\" ")
+        guard
+          let text = searchBar.text,
+          !text.isEmpty
+        else { return }
+
+        viewModel.fetchData(text: text)
 
     }
 }

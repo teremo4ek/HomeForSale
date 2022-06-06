@@ -55,6 +55,10 @@ class HomeDetailViewController: UIViewController {
 }
 
 extension HomeDetailViewController: NetworkDataDelegate {
+    func onImageDownloaded(id: String) {
+
+    }
+
     func onComplition() {
         self.updateInterface()
     }
