@@ -38,6 +38,9 @@ class Flickr {
     enum Error: Swift.Error {
         case unknownAPIResponse
         case generic
+
+        case invalidURL
+        case noData
     }
 
     func searchFlickr(for searchTerm: String, completion: @escaping (Result<FlickrSearchResults, Swift.Error>) -> Void) {
@@ -112,19 +115,19 @@ class Flickr {
 
             let flickrPhoto = FlickrPhoto(photoID: photoID, farm: farm, server: server, secret: secret)
             return flickrPhoto
-//            guard
-//                let url = flickrPhoto.flickrImageURL(),
-//                let imageData = try? Data(contentsOf: url as URL)
-//            else {
-//                return nil
-//            }
-//
-//            if let image = UIImage(data: imageData) {
-//                flickrPhoto.thumbnail = image
-//                return flickrPhoto
-//            } else {
-//                return nil
-//            }
+            //            guard
+            //                let url = flickrPhoto.flickrImageURL(),
+            //                let imageData = try? Data(contentsOf: url as URL)
+            //            else {
+            //                return nil
+            //            }
+            //
+            //            if let image = UIImage(data: imageData) {
+            //                flickrPhoto.thumbnail = image
+            //                return flickrPhoto
+            //            } else {
+            //                return nil
+            //            }
         }
         return photos
     }
@@ -136,5 +139,39 @@ class Flickr {
 
         let URLString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(escapedTerm)&per_page=40&format=json&nojsoncallback=1"
         return URL(string: URLString)
+    }
+
+    // MARK: - download images
+
+    private func flickrImageURL(photo: FlickrPhoto, size: String = "m") -> URL? {
+        return URL(string: "https://farm\(photo.farm).staticflickr.com/\(photo.server)/\(photo.photoID)_\(photo.secret)_\(size).jpg")
+    }
+
+    func loadLargeImage(photo: FlickrPhoto, completion: @escaping (Result<UIImage, Swift.Error>) -> Void) {
+        guard let loadURL = flickrImageURL(photo: photo, size: "b") else {
+            completion(.failure(Error.invalidURL))
+            return
+        }
+
+        let loadRequest = URLRequest(url: loadURL)
+
+        URLSession.shared.dataTask(with: loadRequest) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(Error.noData))
+                return
+            }
+
+            if let returnedImage = UIImage(data: data) {
+                completion(.success(returnedImage))
+            } else {
+                completion(.failure(Error.noData))
+            }
+        }
+        .resume()
     }
 }
