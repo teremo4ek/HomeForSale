@@ -32,11 +32,8 @@ class HomeInfoTableViewCell: UITableViewCell {
     }
 
     private func updateImage() {
-        guard let data = viewModel?.imageData, let viewModel = viewModel else { return }
-        if viewModel.isImageDownloaded {
-            houseImage.image = UIImage(data: data)
-        }
-
+        guard let viewModel = viewModel else { return }
+        houseImage.image = viewModel.image
     }
 
     lazy var houseImage: UIImageView = {

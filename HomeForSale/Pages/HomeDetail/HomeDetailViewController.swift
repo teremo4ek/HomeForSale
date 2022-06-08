@@ -63,7 +63,7 @@ extension HomeDetailViewController: NetworkDataDelegate {
         self.updateInterface()
     }
 
-    func onHomeInfoCellUpdated(indexes: [Int]) {
+    func onHomeInfoCellUpdated(indexPaths: [IndexPath]) {
 
     }
 }

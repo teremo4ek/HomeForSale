@@ -9,6 +9,6 @@ import Foundation
 
 protocol NetworkDataDelegate: AnyObject {
     func onComplition()
-    func onHomeInfoCellUpdated(indexes: [Int])
+    func onHomeInfoCellUpdated(indexPaths: [IndexPath])
     func onImageDownloaded(id: String)
 }

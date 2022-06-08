@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class HomesViewModel {
     private var selectedIndexPath: IndexPath?
@@ -14,6 +15,7 @@ final class HomesViewModel {
     weak var delegate: NetworkDataDelegate?
 
     private var homeList: [HomeCell] = []
+    let serialQueue = DispatchQueue(label: "Downsampling queue")
 
     init(dataManager: DataManager) {
         self.dataManager = dataManager
@@ -36,9 +38,6 @@ final class HomesViewModel {
 
     func cellViewModel(forIndexPath indexPath: IndexPath) -> HomeInfoCellViewModel? {
         let homeCell = homeList[indexPath.row]
-        if !homeCell.imageDownloaded {
-            downloadImages(cell: homeCell)
-        }
         return HomeInfoCellViewModel(home: homeCell)
     }
 
@@ -48,6 +47,19 @@ final class HomesViewModel {
 
     func fetchData() {
         dataManager?.fetchData(forRequestType: .homeList)
+    }
+
+    func downsampleImage(forIndexPath indexPath: IndexPath, to pointSize: CGSize, scale: CGFloat) {
+        let homeCell = homeList[indexPath.row]
+        if !homeCell.imageDownloaded, let url = URL(string: homeCell.imageUrl) {
+            serialQueue.async { [weak self] in
+                let downsampledImage = downsample(imageAt: url, to: pointSize, scale: scale)
+                homeCell.image = downsampledImage
+                homeCell.imageDownloaded = true
+                self?.delegate?.onHomeInfoCellUpdated(indexPaths: [indexPath])
+            }
+        }
+
     }
 
     // MARK: - Download Image by URL
@@ -69,6 +81,6 @@ final class HomesViewModel {
             }
             index += 1
         }
-        delegate?.onHomeInfoCellUpdated(indexes: indexes)
+        // delegate?.onHomeInfoCellUpdated(indexes: indexes)
     }
 }

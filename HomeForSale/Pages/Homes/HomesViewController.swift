@@ -55,7 +55,6 @@ class HomesViewController: UIViewController {
                     indexPaths.append(IndexPath(row: index, section: 0))
                     print("MainTableViewController - updateRow \(index)")
                 }
-
                 self?.homesView.tableView.reloadRows(at: indexPaths, with: .none)
             }
         }
@@ -75,8 +74,30 @@ extension HomesViewController: UITableViewDataSource {
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
         cell.viewModel = cellViewModel
 
+//        cell.layoutIfNeeded() // Ensure imageView is its final size.
+
+        var imageViewSize = cell.houseImage.bounds.size
+        let scale = tableView.traitCollection.displayScale
+        if imageViewSize == .zero {
+            imageViewSize = cell.bounds.size
+            // print("cell.row=\(indexPath.row) cellViewSize \(imageViewSize); scale \(scale)")
+        }
+        // print("cell.row=\(indexPath.row) imageViewSize \(imageViewSize); scale \(scale)")
+        viewModel.downsampleImage(forIndexPath: indexPath, to: imageViewSize, scale: scale)
+
         return cell
     }
+}
+
+extension HomesViewController: UITableViewDataSourcePrefetching {
+
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        // Asynchronously decode and downsample every image we are about to show
+        for indexPath in indexPaths {
+            print("prefetchItemsAt \(indexPath.row)")
+        }
+    }
+
 }
 
 extension HomesViewController: UITableViewDelegate {
@@ -96,10 +117,16 @@ extension HomesViewController: NetworkDataDelegate {
     }
 
     func onComplition() {
+        print("HomeViewController.onComplition")
         self.updateInterface()
     }
 
-    func onHomeInfoCellUpdated(indexes: [Int]) {
-        self.updateRows(indexes)
+    func onHomeInfoCellUpdated(indexPaths: [IndexPath]) {
+        let rows = indexPaths.map { indexPath in
+            indexPath.row
+        }
+        print("HomeViewController.onHomeInfoCellUpdate \(rows)")
+
+        self.updateRows(rows)
     }
 }

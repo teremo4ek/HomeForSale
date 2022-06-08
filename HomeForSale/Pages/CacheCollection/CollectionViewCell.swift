@@ -61,7 +61,7 @@ extension CollectionViewCell: NetworkDataDelegate {
 
     }
 
-    func onHomeInfoCellUpdated(indexes: [Int]) {
+    func onHomeInfoCellUpdated(indexPaths: [IndexPath]) {
 
     }
 
