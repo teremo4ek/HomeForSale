@@ -91,6 +91,10 @@ extension HomesViewController: UITableViewDelegate {
 }
 
 extension HomesViewController: NetworkDataDelegate {
+    func onImageDownloaded(id: String) {
+
+    }
+
     func onComplition() {
         self.updateInterface()
     }

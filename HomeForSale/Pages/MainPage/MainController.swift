@@ -23,11 +23,19 @@ class MainController: UIViewController {
         self.view.layoutIfNeeded()
 
         self.mainView.buttonPureLayout.addTarget(self, action: #selector(pureLayoutAction), for: .touchUpInside)
+
+        self.mainView.buttonCache.addTarget(self, action: #selector(cacheAction), for: .touchUpInside)
     }
 
     @objc func pureLayoutAction(sender: UIButton!) {
         print("btnPureLayoutAction")
         let coordinator = HomesInfoTableCoordinator(presentingController: navigationController)
+        coordinator.start()
+    }
+
+    @objc func cacheAction(sender: UIButton!) {
+        print("btnCacheAction")
+        let coordinator = CacheCollectionCoordinator(presentingController: navigationController)
         coordinator.start()
     }
 }

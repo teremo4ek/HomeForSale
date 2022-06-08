@@ -33,6 +33,17 @@
 		1A46D0B2284652AB005DBF7E /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46D0B1284652AB005DBF7E /* LocalDataManager.swift */; };
 		1A46D0B428465328005DBF7E /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46D0B328465328005DBF7E /* DataManagerProtocol.swift */; };
 		1A46D0B6284655C6005DBF7E /* NetworkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46D0B5284655C6005DBF7E /* NetworkDataManager.swift */; };
+		1A5F44F72848C71600BC8C2E /* CacheCollectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44F62848C71600BC8C2E /* CacheCollectionCoordinator.swift */; };
+		1A5F44F92848C7A900BC8C2E /* CacheCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44F82848C7A900BC8C2E /* CacheCollectionViewModel.swift */; };
+		1A5F44FB2848C7BF00BC8C2E /* CacheCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44FA2848C7BF00BC8C2E /* CacheCollectionView.swift */; };
+		1A5F44FD2848C81500BC8C2E /* CacheCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44FC2848C81500BC8C2E /* CacheCollectionViewController.swift */; };
+		1A5F44FF2848F72900BC8C2E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F44FE2848F72900BC8C2E /* CollectionViewCell.swift */; };
+		1A5F45012848F75D00BC8C2E /* CollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F45002848F75D00BC8C2E /* CollectionCellViewModel.swift */; };
+		1A5F4506284A151E00BC8C2E /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4503284A151E00BC8C2E /* FlickrPhoto.swift */; };
+		1A5F4507284A151E00BC8C2E /* FlickrSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */; };
+		1A5F4508284A151E00BC8C2E /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4505284A151E00BC8C2E /* Flickr.swift */; };
+		1A9420B8284E364900B39B15 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9420B7284E364900B39B15 /* CacheManager.swift */; };
+		1A9420CF2850A2A600B39B15 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A9420CE2850A2A600B39B15 /* Config.plist */; };
 		1AB31B13283B78F00027C338 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB31B12283B78F00027C338 /* MainController.swift */; };
 		1AC51861283B956C00D0E658 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51860283B956C00D0E658 /* MainView.swift */; };
 		1AC51864283B9F7000D0E658 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51863283B9F7000D0E658 /* HomesViewController.swift */; };
@@ -82,6 +93,23 @@
 		1A46D0B1284652AB005DBF7E /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		1A46D0B328465328005DBF7E /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
 		1A46D0B5284655C6005DBF7E /* NetworkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataManager.swift; sourceTree = "<group>"; };
+		1A5F44F62848C71600BC8C2E /* CacheCollectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionCoordinator.swift; sourceTree = "<group>"; };
+		1A5F44F82848C7A900BC8C2E /* CacheCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionViewModel.swift; sourceTree = "<group>"; };
+		1A5F44FA2848C7BF00BC8C2E /* CacheCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionView.swift; sourceTree = "<group>"; };
+		1A5F44FC2848C81500BC8C2E /* CacheCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheCollectionViewController.swift; sourceTree = "<group>"; };
+		1A5F44FE2848F72900BC8C2E /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		1A5F45002848F75D00BC8C2E /* CollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellViewModel.swift; sourceTree = "<group>"; };
+		1A5F4503284A151E00BC8C2E /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
+		1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearchResults.swift; sourceTree = "<group>"; };
+		1A5F4505284A151E00BC8C2E /* Flickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
+		1A9420B7284E364900B39B15 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		1A9420BF28508F5C00B39B15 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		1A9420C02850935900B39B15 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		1A9420C12850938200B39B15 /* Prodaction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Prodaction.xcconfig; sourceTree = "<group>"; };
+		1A9420C2285094BF00B39B15 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		1A9420C4285094D800B39B15 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		1A9420C6285094EE00B39B15 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		1A9420CE2850A2A600B39B15 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		1AB31B12283B78F00027C338 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		1AC51860283B956C00D0E658 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1AC51863283B9F7000D0E658 /* HomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +132,7 @@
 		33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.debug.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeForSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.release.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.release.xcconfig"; sourceTree = "<group>"; };
+		FA29B79D12C03CC294A6B258 /* Pods-HomeForSale.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.staging.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.staging.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +152,7 @@
 			children = (
 				33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */,
 				C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */,
+				FA29B79D12C03CC294A6B258 /* Pods-HomeForSale.staging.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -154,12 +184,9 @@
 				1A29B5342833D08900F86F02 /* Network */,
 				1A0FAA3B282FE05D00D9F8F1 /* Models */,
 				1AC5186B283BE46700D0E658 /* TestData */,
+				1A9420BB284F9E9600B39B15 /* Resources */,
 				1A0FAA25282FB53200D9F8F1 /* AppDelegate.swift */,
 				1A0FAA27282FB53200D9F8F1 /* SceneDelegate.swift */,
-				1A0FAA2E282FB53400D9F8F1 /* Assets.xcassets */,
-				1A0FAA30282FB53400D9F8F1 /* LaunchScreen.storyboard */,
-				1A0FAA33282FB53400D9F8F1 /* Info.plist */,
-				1AC51884283E770F00D0E658 /* Localizable.strings */,
 			);
 			path = HomeForSale;
 			sourceTree = "<group>";
@@ -189,6 +216,8 @@
 		1A29B5342833D08900F86F02 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1A9420B6284E362C00B39B15 /* Cache */,
+				1A5F4502284A14D000BC8C2E /* Flickr */,
 				1A3716CC283FAA0B00585907 /* DataManager.swift */,
 				1A46D0B328465328005DBF7E /* DataManagerProtocol.swift */,
 				1A46D0B1284652AB005DBF7E /* LocalDataManager.swift */,
@@ -240,9 +269,99 @@
 			path = DetailScreen;
 			sourceTree = "<group>";
 		};
+		1A5F44F52848C6C600BC8C2E /* CacheCollection */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F44F62848C71600BC8C2E /* CacheCollectionCoordinator.swift */,
+				1A5F44FC2848C81500BC8C2E /* CacheCollectionViewController.swift */,
+				1A5F44F82848C7A900BC8C2E /* CacheCollectionViewModel.swift */,
+				1A5F44FA2848C7BF00BC8C2E /* CacheCollectionView.swift */,
+				1A5F44FE2848F72900BC8C2E /* CollectionViewCell.swift */,
+				1A5F45002848F75D00BC8C2E /* CollectionCellViewModel.swift */,
+			);
+			path = CacheCollection;
+			sourceTree = "<group>";
+		};
+		1A5F4502284A14D000BC8C2E /* Flickr */ = {
+			isa = PBXGroup;
+			children = (
+				1A5F4505284A151E00BC8C2E /* Flickr.swift */,
+				1A5F4503284A151E00BC8C2E /* FlickrPhoto.swift */,
+				1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */,
+			);
+			path = Flickr;
+			sourceTree = "<group>";
+		};
+		1A9420B6284E362C00B39B15 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420B7284E364900B39B15 /* CacheManager.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		1A9420BB284F9E9600B39B15 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420CC2850A24D00B39B15 /* Generated */,
+				1A9420BE28508F2600B39B15 /* Prodaction */,
+				1A9420BD28508F1700B39B15 /* Staging */,
+				1A9420BC28508EF600B39B15 /* Development */,
+				1A0FAA33282FB53400D9F8F1 /* Info.plist */,
+				1AC51884283E770F00D0E658 /* Localizable.strings */,
+				1A0FAA30282FB53400D9F8F1 /* LaunchScreen.storyboard */,
+				1A0FAA2E282FB53400D9F8F1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1A9420BC28508EF600B39B15 /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420BF28508F5C00B39B15 /* Development.xcconfig */,
+				1A9420C6285094EE00B39B15 /* Config.plist */,
+			);
+			path = Development;
+			sourceTree = "<group>";
+		};
+		1A9420BD28508F1700B39B15 /* Staging */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420C02850935900B39B15 /* Staging.xcconfig */,
+				1A9420C4285094D800B39B15 /* Config.plist */,
+			);
+			path = Staging;
+			sourceTree = "<group>";
+		};
+		1A9420BE28508F2600B39B15 /* Prodaction */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420C12850938200B39B15 /* Prodaction.xcconfig */,
+				1A9420C2285094BF00B39B15 /* Config.plist */,
+			);
+			path = Prodaction;
+			sourceTree = "<group>";
+		};
+		1A9420CC2850A24D00B39B15 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420CD2850A28500B39B15 /* Config */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		1A9420CD2850A28500B39B15 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1A9420CE2850A2A600B39B15 /* Config.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		1AC5185E283B950C00D0E658 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				1A5F44F52848C6C600BC8C2E /* CacheCollection */,
 				1AC51874283E302700D0E658 /* HomeDetail */,
 				1AC51862283B9F1500D0E658 /* Homes */,
 				1AC5185F283B951900D0E658 /* MainPage */,
@@ -308,11 +427,12 @@
 			buildConfigurationList = 1A0FAA36282FB53400D9F8F1 /* Build configuration list for PBXNativeTarget "HomeForSale" */;
 			buildPhases = (
 				426E6FD97F0D37C491205D1E /* [CP] Check Pods Manifest.lock */,
+				1A9420C828509DC600B39B15 /* Copy Config */,
 				1A0FAA1E282FB53200D9F8F1 /* Sources */,
 				1A0FAA1F282FB53200D9F8F1 /* Frameworks */,
 				1A0FAA20282FB53200D9F8F1 /* Resources */,
 				B9B75FE72D92A07FA844C1AF /* [CP] Embed Pods Frameworks */,
-				1A8CF03E2840FB31007A0173 /* ShellScript */,
+				1A8CF03E2840FB31007A0173 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -366,6 +486,7 @@
 				1A29B55128363BC500F86F02 /* LabelViewController.xib in Resources */,
 				1A0FAA32282FB53400D9F8F1 /* LaunchScreen.storyboard in Resources */,
 				1AC51882283E770F00D0E658 /* Localizable.strings in Resources */,
+				1A9420CF2850A2A600B39B15 /* Config.plist in Resources */,
 				1AC5186F283BE53400D0E658 /* HomeDetail.json in Resources */,
 				1A29B53C28352B6E00F86F02 /* ButtonView.xib in Resources */,
 				1A0FAA2F282FB53400D9F8F1 /* Assets.xcassets in Resources */,
@@ -375,7 +496,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A8CF03E2840FB31007A0173 /* ShellScript */ = {
+		1A8CF03E2840FB31007A0173 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -384,6 +505,7 @@
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -391,6 +513,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		1A9420C828509DC600B39B15 /* Copy Config */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Config";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${SRCROOT}/HomeForSale/Resources/Generated/Config/Config.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -fp \"${SRCROOT}/HomeForSale/Resources/${XCC_CONFIG_PATH}\" \"${SRCROOT}/HomeForSale/Resources/Generated/Config/Config.plist\"\n";
 		};
 		426E6FD97F0D37C491205D1E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -444,6 +585,7 @@
 				1A29B545283534B900F86F02 /* XibButtonViewCoordinator.swift in Sources */,
 				1A29B54028352F9900F86F02 /* ButtonViewController.swift in Sources */,
 				1A29B5422835342E00F86F02 /* ButtonViewModal.swift in Sources */,
+				1A9420B8284E364900B39B15 /* CacheManager.swift in Sources */,
 				1AC51871283CCCB500D0E658 /* HomesViewModel.swift in Sources */,
 				1A29B5492836393100F86F02 /* XibLabelViewCoordinator.swift in Sources */,
 				1A0FAA57283262F100D9F8F1 /* TypeCell.swift in Sources */,
@@ -451,23 +593,32 @@
 				1A0FAA26282FB53200D9F8F1 /* AppDelegate.swift in Sources */,
 				1AC51873283CCE7700D0E658 /* HomeInfoCellViewModel.swift in Sources */,
 				1AC5187A283E351100D0E658 /* HomeDetailViewController.swift in Sources */,
+				1A5F44F72848C71600BC8C2E /* CacheCollectionCoordinator.swift in Sources */,
 				1A46D0B2284652AB005DBF7E /* LocalDataManager.swift in Sources */,
 				1A29B53A2835063900F86F02 /* HomeCell.swift in Sources */,
 				1A29B53E28352C1500F86F02 /* ButtonView.swift in Sources */,
 				1AC51887283E805A00D0E658 /* NetworkDataDelegate.swift in Sources */,
 				1AB31B13283B78F00027C338 /* MainController.swift in Sources */,
+				1A5F44FB2848C7BF00BC8C2E /* CacheCollectionView.swift in Sources */,
+				1A5F45012848F75D00BC8C2E /* CollectionCellViewModel.swift in Sources */,
 				1AC51878283E34DA00D0E658 /* HomeDetailViewModel.swift in Sources */,
+				1A5F44FD2848C81500BC8C2E /* CacheCollectionViewController.swift in Sources */,
 				1A29B55028363BC500F86F02 /* LabelViewController.swift in Sources */,
 				1AC51861283B956C00D0E658 /* MainView.swift in Sources */,
 				1A0FAA3D282FE0C200D9F8F1 /* HomeAPI.swift in Sources */,
 				1AC5186A283BD07300D0E658 /* HomesInfoTableCoordinator.swift in Sources */,
 				1A29B55A283656DA00F86F02 /* DetailScreenViewController.swift in Sources */,
 				1A29B5382833D33100F86F02 /* Constants.swift in Sources */,
+				1A5F4506284A151E00BC8C2E /* FlickrPhoto.swift in Sources */,
 				1A29B5582836562E00F86F02 /* DetailScreenCoordinator.swift in Sources */,
+				1A5F4507284A151E00BC8C2E /* FlickrSearchResults.swift in Sources */,
 				1A46D0B6284655C6005DBF7E /* NetworkDataManager.swift in Sources */,
 				1A29B55628364F7900F86F02 /* DetailScreenViewModel.swift in Sources */,
 				1A29B54B283639C200F86F02 /* LabelViewModel.swift in Sources */,
 				1A0FAA4F282FEE6200D9F8F1 /* Box.swift in Sources */,
+				1A5F44F92848C7A900BC8C2E /* CacheCollectionViewModel.swift in Sources */,
+				1A5F4508284A151E00BC8C2E /* Flickr.swift in Sources */,
+				1A5F44FF2848F72900BC8C2E /* CollectionViewCell.swift in Sources */,
 				1A46D0B428465328005DBF7E /* DataManagerProtocol.swift in Sources */,
 				1AC5187C283E36FE00D0E658 /* HomeDetailView.swift in Sources */,
 				1A0FAA28282FB53200D9F8F1 /* SceneDelegate.swift in Sources */,
@@ -503,6 +654,7 @@
 /* Begin XCBuildConfiguration section */
 		1A0FAA34282FB53400D9F8F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A9420BF28508F5C00B39B15 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -564,6 +716,7 @@
 		};
 		1A0FAA35282FB53400D9F8F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A9420C12850938200B39B15 /* Prodaction.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -625,8 +778,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomeForSale/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HomeForSale/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -652,8 +805,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomeForSale/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HomeForSale/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -671,6 +824,95 @@
 			};
 			name = Release;
 		};
+		1A9420B9284F9E5400B39B15 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A9420C02850935900B39B15 /* Staging.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Staging;
+		};
+		1A9420BA284F9E5400B39B15 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA29B79D12C03CC294A6B258 /* Pods-HomeForSale.staging.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HomeForSale/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ybely.HomeForSale;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Staging;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -678,6 +920,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A0FAA34282FB53400D9F8F1 /* Debug */,
+				1A9420B9284F9E5400B39B15 /* Staging */,
 				1A0FAA35282FB53400D9F8F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -687,6 +930,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A0FAA37282FB53400D9F8F1 /* Debug */,
+				1A9420BA284F9E5400B39B15 /* Staging */,
 				1A0FAA38282FB53400D9F8F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

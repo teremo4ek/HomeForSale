@@ -1,0 +1,12 @@
+//
+//  Staging.xcconfig
+//  HomeForSale
+//
+//  Created by Yury Bely on 08.06.2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+XCC_BUNDLE_NAME = HSDemo S
+XCC_CONFIG_PATH = Staging/Config.plist
