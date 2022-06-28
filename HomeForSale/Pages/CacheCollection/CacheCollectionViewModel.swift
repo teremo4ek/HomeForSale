@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 class CacheCollectionViewModel {
     private var selectedIndexPath: IndexPath?
     private var dataManager: DataManager!
     private var searches: [FlickrSearchResults] = []
     private let flickr = Flickr()
+    private let cacheManager = CacheManager.shared()
+    let flickrQueue = DispatchQueue(label: "Flickr queue")
 
     weak var delegate: NetworkDataDelegate?
 
@@ -57,5 +60,35 @@ class CacheCollectionViewModel {
 
     func numberOfItemsInSection(section: Int) -> Int {
         return searches[section].searchResults.count
+    }
+
+    func downloadImage(paths indexPaths: [IndexPath]) {
+
+        for indexPath in indexPaths {
+            let flickrPhoto = photo(for: indexPath)
+            if flickrPhoto.state == .NotDownloaded {
+                flickrPhoto.state = .Processing
+                flickrQueue.async { [weak self, indexPath]  in
+                    self?.flickr.loadLargeImage(photo: flickrPhoto, completion: { result in
+                        do {
+                            let image = try result.get()
+                            print("Large image downloaded succesfuly: \(flickrPhoto.photoID)")
+
+                            guard let data = image.pngData() else { return }
+                            self?.cacheManager.storeImage(id: flickrPhoto.photoID, data: data as NSData)
+                            flickrPhoto.state = .Downloaded
+
+                            self?.delegate?.onImageDownloaded(id: flickrPhoto.photoID)
+                            self?.delegate?.onHomeInfoCellUpdated(indexPaths: [indexPath])
+
+                          } catch {
+                              flickrPhoto.state = .NotDownloaded
+                              print("downloadImage error: \(error.localizedDescription)")
+                          }
+                    })
+                }
+            }
+        }
+
     }
 }

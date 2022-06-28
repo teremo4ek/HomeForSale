@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class HomeInfoCellViewModel {
     private var home: HomeCell
@@ -44,5 +45,13 @@ final class HomeInfoCellViewModel {
 
     var imageData: Data? {
         return home.imageData
+    }
+
+    var imageUrl: String {
+        return home.imageUrl
+    }
+
+    var image: UIImage {
+        return home.image ?? UIImage(systemName: "house")!
     }
 }

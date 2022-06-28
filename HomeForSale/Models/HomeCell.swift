@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HomeCell {
     let type, id: String
@@ -20,6 +21,7 @@ class HomeCell {
     let imageUrl: String
 
     var imageData: Data?
+    var image: UIImage?
     var imageDownloaded: Bool {
         didSet {
 

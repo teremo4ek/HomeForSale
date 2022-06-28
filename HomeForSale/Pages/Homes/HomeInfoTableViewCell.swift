@@ -12,6 +12,9 @@ class HomeInfoTableViewCell: UITableViewCell {
 
     let minPadding: CGFloat = 4.0
     let smallPadding: CGFloat = 16.0
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: UIView.noIntrinsicMetric, height: 100)
+    }
 
     var viewModel: HomeInfoCellViewModel? {
         didSet {
@@ -32,11 +35,8 @@ class HomeInfoTableViewCell: UITableViewCell {
     }
 
     private func updateImage() {
-        guard let data = viewModel?.imageData, let viewModel = viewModel else { return }
-        if viewModel.isImageDownloaded {
-            houseImage.image = UIImage(data: data)
-        }
-
+        guard let viewModel = viewModel else { return }
+        houseImage.image = viewModel.image
     }
 
     lazy var houseImage: UIImageView = {
