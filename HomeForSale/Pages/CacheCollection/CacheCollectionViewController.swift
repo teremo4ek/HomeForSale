@@ -72,6 +72,9 @@ extension CacheCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCellReuseIdentifier, for: indexPath) as! CollectionViewCell
 
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+        cellViewModel?.imageViewSize = imageViewSize
+        cellViewModel?.imageViewScale = imageViewScale
+        cellViewModel?.loadImage()
         cell.viewModel = cellViewModel
 
         return cell
@@ -111,7 +114,7 @@ extension CacheCollectionViewController: UICollectionViewDelegateFlowLayout {
 extension CacheCollectionViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         print("prefetchItemsAt \(indexPaths)")
-        viewModel?.downsampleImage(paths: indexPaths, to: imageViewSize, scale: imageViewScale)
+        viewModel?.downloadImage(paths: indexPaths)
     }
 }
 

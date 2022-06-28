@@ -62,20 +62,19 @@ class CacheCollectionViewModel {
         return searches[section].searchResults.count
     }
 
-    func downsampleImage(paths indexPaths: [IndexPath], to pointSize: CGSize, scale: CGFloat) {
+    func downloadImage(paths indexPaths: [IndexPath]) {
 
         for indexPath in indexPaths {
             let flickrPhoto = photo(for: indexPath)
             if flickrPhoto.state == .NotDownloaded {
                 flickrPhoto.state = .Processing
                 flickrQueue.async { [weak self, indexPath]  in
-                    self?.flickr.loadCGImageSource(photo: flickrPhoto, completion: { result in
+                    self?.flickr.loadLargeImage(photo: flickrPhoto, completion: { result in
                         do {
                             let image = try result.get()
                             print("Large image downloaded succesfuly: \(flickrPhoto.photoID)")
-                            let imageSource = downsampleCGImageSource(image, to: pointSize, scale: scale)
 
-                            guard let data = imageSource.pngData() else { return }
+                            guard let data = image.pngData() else { return }
                             self?.cacheManager.storeImage(id: flickrPhoto.photoID, data: data as NSData)
                             flickrPhoto.state = .Downloaded
 
