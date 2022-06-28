@@ -74,15 +74,11 @@ extension HomesViewController: UITableViewDataSource {
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
         cell.viewModel = cellViewModel
 
-//        cell.layoutIfNeeded() // Ensure imageView is its final size.
-
         var imageViewSize = cell.houseImage.bounds.size
         let scale = tableView.traitCollection.displayScale
         if imageViewSize == .zero {
             imageViewSize = cell.bounds.size
-            // print("cell.row=\(indexPath.row) cellViewSize \(imageViewSize); scale \(scale)")
         }
-        // print("cell.row=\(indexPath.row) imageViewSize \(imageViewSize); scale \(scale)")
         viewModel.downsampleImage(forIndexPath: indexPath, to: imageViewSize, scale: scale)
 
         return cell

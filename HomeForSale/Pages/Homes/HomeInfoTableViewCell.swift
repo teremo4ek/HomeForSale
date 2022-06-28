@@ -12,6 +12,9 @@ class HomeInfoTableViewCell: UITableViewCell {
 
     let minPadding: CGFloat = 4.0
     let smallPadding: CGFloat = 16.0
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: UIView.noIntrinsicMetric, height: 100)
+    }
 
     var viewModel: HomeInfoCellViewModel? {
         didSet {

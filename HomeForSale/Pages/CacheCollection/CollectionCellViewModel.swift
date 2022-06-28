@@ -16,13 +16,13 @@ class CollectionCellViewModel {
     weak var delegate: NetworkDataDelegate?
 
     init(_ photo: FlickrPhoto) {
-        print("+init CollectionCellViewModel id: \(photo.photoID)")
+        // print("+init CollectionCellViewModel id: \(photo.photoID)")
         flickrPhoto = photo
         getImage()
     }
 
     deinit {
-        print("-deinit CollectionCellViewModel id: \(flickrPhoto.photoID)")
+        // print("-deinit CollectionCellViewModel id: \(flickrPhoto.photoID)")
     }
 
     var largeImage: UIImage?
@@ -34,7 +34,11 @@ class CollectionCellViewModel {
     private func getImage() {
 
         if largeImage == nil {
-            if !cachedImage() {
+            if flickrPhoto.state == .Downloaded {
+                if !cachedImage() {
+                    print("image broken and not loaded from cache \(flickrPhoto.photoID) ----")
+                }
+            } else if flickrPhoto.state == .NotDownloaded {
                 downloadImageThrowInternet()
             }
         }
@@ -54,7 +58,7 @@ class CollectionCellViewModel {
 
                     guard let data = image.pngData() else { return }
                     // guard let imageData = UIImage(data: data) else { return }
-                    self?.cacheManager.storeImage(id: flickrPhoto.photoID, data: data)
+                    self?.cacheManager.storeImage(id: flickrPhoto.photoID, data: data as NSData)
 
                   } catch {
                       print("downloadImage error: \(error.localizedDescription)")

@@ -29,11 +29,10 @@ class CacheManager {
         return sharedCacheManager
     }
 
-    func storeImage(id: String, data: Data) {
+    func storeImage(id: String, data: NSData) {
 
-        let dataNS = NSData(data: data)
         let idNS = NSString(string: id)
-        cache.setObject(dataNS, forKey: idNS)
+        cache.setObject(data, forKey: idNS)
 
         print("CacheManager.storeImage  id \(id)")
     }
