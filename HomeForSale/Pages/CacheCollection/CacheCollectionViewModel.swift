@@ -23,7 +23,7 @@ class CacheCollectionViewModel {
     }
 
     deinit {
-        print("Freeing up the HomeDetailViewModel")
+        print("Freeing up the CacheCollectionViewModel")
     }
 
     func cellViewModel(forIndexPath indexPath: IndexPath) -> CollectionCellViewModel? {

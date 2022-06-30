@@ -15,8 +15,13 @@ class CacheCollectionViewController: UIViewController {
     var imageViewSize: CGSize = .zero
     private let itemsPerRow: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private var currentIndexPath: IndexPath?
 
     var viewModel: CacheCollectionViewModel!
+
+    deinit {
+        print("Freeing up the CacheCollectionViewController")
+    }
 
     var cacheCollectionView: CacheCollectionView {
         view as! CacheCollectionView
@@ -47,8 +52,12 @@ class CacheCollectionViewController: UIViewController {
         }
     }
 
-    deinit {
-        print("Freeing up the HomesViewController")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+        guard let indexPath = currentIndexPath else { return }
+
+        cacheCollectionView.collectionView.reloadItems(at: [indexPath])
     }
 
     // MARK: - - Update Interface
@@ -62,7 +71,7 @@ extension CacheCollectionViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.numberOfSearchesPhrases()
-      }
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection(section: section)
@@ -77,7 +86,24 @@ extension CacheCollectionViewController: UICollectionViewDataSource {
         cellViewModel?.loadImage()
         cell.viewModel = cellViewModel
 
+        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap)))
+
         return cell
+    }
+
+    @objc func tap(_ sender: UITapGestureRecognizer) {
+
+        let location = sender.location(in: self.cacheCollectionView.collectionView)
+        let indexPath = self.cacheCollectionView.collectionView.indexPathForItem(at: location)
+
+        if let index = indexPath {
+            print("Got clicked on index: \(index)!")
+            currentIndexPath = index
+
+            let coordinator = CacheDetailCoordinator(presentingController: navigationController, photo: viewModel.photo(for: index))
+            coordinator.start()
+
+        }
     }
 }
 
@@ -99,15 +125,15 @@ extension CacheCollectionViewController: UICollectionViewDelegateFlowLayout {
         }
 
         return CGSize(width: widthPerItem, height: widthPerItem)
-      }
+    }
 
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
-      }
+    }
 
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
-      }
+    }
 
 }
 
@@ -156,8 +182,8 @@ extension CacheCollectionViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print("searchBarTextDidEndEditing text: \"\(String(describing: searchBar.text))\" ")
         guard
-          let text = searchBar.text,
-          !text.isEmpty
+            let text = searchBar.text,
+            !text.isEmpty
         else { return }
 
         viewModel.fetchData(text: text)

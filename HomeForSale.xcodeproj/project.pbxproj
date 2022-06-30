@@ -45,6 +45,10 @@
 		1A9420B8284E364900B39B15 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9420B7284E364900B39B15 /* CacheManager.swift */; };
 		1A9420CF2850A2A600B39B15 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A9420CE2850A2A600B39B15 /* Config.plist */; };
 		1A9420D12850B66300B39B15 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9420D02850B66300B39B15 /* Images.swift */; };
+		1A9652D7286C73790029FCB1 /* CacheDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9652D6286C73780029FCB1 /* CacheDetailCoordinator.swift */; };
+		1A9652D9286C73A90029FCB1 /* CacheDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9652D8286C73A90029FCB1 /* CacheDetailViewModel.swift */; };
+		1A9652DB286C73C60029FCB1 /* CacheDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9652DA286C73C60029FCB1 /* CacheDetailView.swift */; };
+		1A9652DD286C753D0029FCB1 /* CacheDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9652DC286C753D0029FCB1 /* CacheDetailViewController.swift */; };
 		1AB31B13283B78F00027C338 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB31B12283B78F00027C338 /* MainController.swift */; };
 		1AC51861283B956C00D0E658 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51860283B956C00D0E658 /* MainView.swift */; };
 		1AC51864283B9F7000D0E658 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51863283B9F7000D0E658 /* HomesViewController.swift */; };
@@ -112,6 +116,10 @@
 		1A9420C6285094EE00B39B15 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		1A9420CE2850A2A600B39B15 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		1A9420D02850B66300B39B15 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		1A9652D6286C73780029FCB1 /* CacheDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDetailCoordinator.swift; sourceTree = "<group>"; };
+		1A9652D8286C73A90029FCB1 /* CacheDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDetailViewModel.swift; sourceTree = "<group>"; };
+		1A9652DA286C73C60029FCB1 /* CacheDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDetailView.swift; sourceTree = "<group>"; };
+		1A9652DC286C753D0029FCB1 /* CacheDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDetailViewController.swift; sourceTree = "<group>"; };
 		1AB31B12283B78F00027C338 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		1AC51860283B956C00D0E658 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1AC51863283B9F7000D0E658 /* HomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +283,7 @@
 		1A5F44F52848C6C600BC8C2E /* CacheCollection */ = {
 			isa = PBXGroup;
 			children = (
+				1A9652D5286C73470029FCB1 /* CacheDetail */,
 				1A5F44F62848C71600BC8C2E /* CacheCollectionCoordinator.swift */,
 				1A5F44FC2848C81500BC8C2E /* CacheCollectionViewController.swift */,
 				1A5F44F82848C7A900BC8C2E /* CacheCollectionViewModel.swift */,
@@ -359,6 +368,17 @@
 				1A9420CE2850A2A600B39B15 /* Config.plist */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		1A9652D5286C73470029FCB1 /* CacheDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1A9652D6286C73780029FCB1 /* CacheDetailCoordinator.swift */,
+				1A9652DC286C753D0029FCB1 /* CacheDetailViewController.swift */,
+				1A9652DA286C73C60029FCB1 /* CacheDetailView.swift */,
+				1A9652D8286C73A90029FCB1 /* CacheDetailViewModel.swift */,
+			);
+			path = CacheDetail;
 			sourceTree = "<group>";
 		};
 		1AC5185E283B950C00D0E658 /* Pages */ = {
@@ -595,6 +615,7 @@
 				1A0FAA57283262F100D9F8F1 /* TypeCell.swift in Sources */,
 				1A3716CD283FAA0B00585907 /* DataManager.swift in Sources */,
 				1A0FAA26282FB53200D9F8F1 /* AppDelegate.swift in Sources */,
+				1A9652DD286C753D0029FCB1 /* CacheDetailViewController.swift in Sources */,
 				1AC51873283CCE7700D0E658 /* HomeInfoCellViewModel.swift in Sources */,
 				1AC5187A283E351100D0E658 /* HomeDetailViewController.swift in Sources */,
 				1A5F44F72848C71600BC8C2E /* CacheCollectionCoordinator.swift in Sources */,
@@ -610,12 +631,14 @@
 				1A29B55028363BC500F86F02 /* LabelViewController.swift in Sources */,
 				1AC51861283B956C00D0E658 /* MainView.swift in Sources */,
 				1A0FAA3D282FE0C200D9F8F1 /* HomeAPI.swift in Sources */,
+				1A9652D9286C73A90029FCB1 /* CacheDetailViewModel.swift in Sources */,
 				1AC5186A283BD07300D0E658 /* HomesInfoTableCoordinator.swift in Sources */,
 				1A29B55A283656DA00F86F02 /* DetailScreenViewController.swift in Sources */,
 				1A29B5382833D33100F86F02 /* Constants.swift in Sources */,
 				1A5F4506284A151E00BC8C2E /* FlickrPhoto.swift in Sources */,
 				1A29B5582836562E00F86F02 /* DetailScreenCoordinator.swift in Sources */,
 				1A5F4507284A151E00BC8C2E /* FlickrSearchResults.swift in Sources */,
+				1A9652D7286C73790029FCB1 /* CacheDetailCoordinator.swift in Sources */,
 				1A46D0B6284655C6005DBF7E /* NetworkDataManager.swift in Sources */,
 				1A29B55628364F7900F86F02 /* DetailScreenViewModel.swift in Sources */,
 				1A29B54B283639C200F86F02 /* LabelViewModel.swift in Sources */,
@@ -626,6 +649,7 @@
 				1A46D0B428465328005DBF7E /* DataManagerProtocol.swift in Sources */,
 				1AC5187C283E36FE00D0E658 /* HomeDetailView.swift in Sources */,
 				1A0FAA28282FB53200D9F8F1 /* SceneDelegate.swift in Sources */,
+				1A9652DB286C73C60029FCB1 /* CacheDetailView.swift in Sources */,
 				1A29B55428364DF000F86F02 /* Coordinator.swift in Sources */,
 				1AC51876283E342700D0E658 /* HomeDetailCoordinator.swift in Sources */,
 				1AC51864283B9F7000D0E658 /* HomesViewController.swift in Sources */,

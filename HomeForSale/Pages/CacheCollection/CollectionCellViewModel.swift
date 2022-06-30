@@ -21,6 +21,8 @@ class CollectionCellViewModel {
     init(_ photo: FlickrPhoto) {
         // print("+init CollectionCellViewModel id: \(photo.photoID)")
         flickrPhoto = photo
+
+        likeImage = flickrPhoto.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
     }
 
     deinit {
@@ -29,12 +31,23 @@ class CollectionCellViewModel {
 
     var largeImage: UIImage?
 
+    var likeImage: UIImage!
+
     var photoID: String {
         return flickrPhoto.photoID
     }
 
     func loadImage() {
         getImage()
+    }
+
+    func likeAction() {
+        print("likeAction id=\(flickrPhoto.photoID)")
+        flickrPhoto.like = !flickrPhoto.like
+
+        likeImage = flickrPhoto.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+
+        delegate?.onImageDownloaded(id: flickrPhoto.photoID)
     }
 
     private func getImage() {
@@ -83,7 +96,6 @@ class CollectionCellViewModel {
     }
 
     private func cachedImage() {
-
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let photoID = self?.flickrPhoto.photoID else { return }
             guard let size = self?.imageViewSize else { return }
@@ -105,7 +117,5 @@ class CollectionCellViewModel {
 
         }
     }
-
-    // private func downsampleImage()
 
 }
