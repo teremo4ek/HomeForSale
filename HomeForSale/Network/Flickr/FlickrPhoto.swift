@@ -13,6 +13,7 @@ class FlickrPhoto: Equatable {
     let secret: String
 
     var state: FlickrPhotoState = .NotDownloaded
+    var like: Bool = false
 
     init (photoID: String, farm: Int, server: String, secret: String) {
         self.photoID = photoID

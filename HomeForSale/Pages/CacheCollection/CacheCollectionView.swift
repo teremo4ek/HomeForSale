@@ -39,5 +39,6 @@ class CacheCollectionView: UIView {
 
     private func setupConstraints() {
         collectionView.autoPinEdgesToSuperviewEdges()
+
     }
 }
