@@ -15,6 +15,10 @@ class CacheDetailViewController: UIViewController {
         view as! CacheDetailView
     }
 
+    deinit {
+        print("Freeing up the CacheDetailViewController")
+    }
+
     override func loadView() {
         view = CacheDetailView()
     }

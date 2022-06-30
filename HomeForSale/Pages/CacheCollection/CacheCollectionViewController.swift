@@ -15,8 +15,13 @@ class CacheCollectionViewController: UIViewController {
     var imageViewSize: CGSize = .zero
     private let itemsPerRow: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private var currentIndexPath: IndexPath?
 
     var viewModel: CacheCollectionViewModel!
+
+    deinit {
+        print("Freeing up the CacheCollectionViewController")
+    }
 
     var cacheCollectionView: CacheCollectionView {
         view as! CacheCollectionView
@@ -47,8 +52,12 @@ class CacheCollectionViewController: UIViewController {
         }
     }
 
-    deinit {
-        print("Freeing up the HomesViewController")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+        guard let indexPath = currentIndexPath else { return }
+
+        cacheCollectionView.collectionView.reloadItems(at: [indexPath])
     }
 
     // MARK: - - Update Interface
@@ -89,6 +98,7 @@ extension CacheCollectionViewController: UICollectionViewDataSource {
 
         if let index = indexPath {
             print("Got clicked on index: \(index)!")
+            currentIndexPath = index
 
             let coordinator = CacheDetailCoordinator(presentingController: navigationController, photo: viewModel.photo(for: index))
             coordinator.start()
