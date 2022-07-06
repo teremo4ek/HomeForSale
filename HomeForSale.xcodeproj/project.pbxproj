@@ -42,6 +42,8 @@
 		1A5F4506284A151E00BC8C2E /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4503284A151E00BC8C2E /* FlickrPhoto.swift */; };
 		1A5F4507284A151E00BC8C2E /* FlickrSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */; };
 		1A5F4508284A151E00BC8C2E /* Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5F4505284A151E00BC8C2E /* Flickr.swift */; };
+		1A92337128759E7D00779F66 /* TabBarControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A92337028759E7D00779F66 /* TabBarControlle.swift */; };
+		1A92337328759EF100779F66 /* TapBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A92337228759EF100779F66 /* TapBarViewModel.swift */; };
 		1A9420B8284E364900B39B15 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9420B7284E364900B39B15 /* CacheManager.swift */; };
 		1A9420CF2850A2A600B39B15 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A9420CE2850A2A600B39B15 /* Config.plist */; };
 		1A9420D12850B66300B39B15 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9420D02850B66300B39B15 /* Images.swift */; };
@@ -107,6 +109,8 @@
 		1A5F4503284A151E00BC8C2E /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		1A5F4504284A151E00BC8C2E /* FlickrSearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearchResults.swift; sourceTree = "<group>"; };
 		1A5F4505284A151E00BC8C2E /* Flickr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flickr.swift; sourceTree = "<group>"; };
+		1A92337028759E7D00779F66 /* TabBarControlle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControlle.swift; sourceTree = "<group>"; };
+		1A92337228759EF100779F66 /* TapBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarViewModel.swift; sourceTree = "<group>"; };
 		1A9420B7284E364900B39B15 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		1A9420BF28508F5C00B39B15 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		1A9420C02850935900B39B15 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
@@ -304,6 +308,15 @@
 			path = Flickr;
 			sourceTree = "<group>";
 		};
+		1A92336F28759E0900779F66 /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				1A92337028759E7D00779F66 /* TabBarControlle.swift */,
+				1A92337228759EF100779F66 /* TapBarViewModel.swift */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
 		1A9420B6284E362C00B39B15 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +397,7 @@
 		1AC5185E283B950C00D0E658 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				1A92336F28759E0900779F66 /* TapBar */,
 				1A5F44F52848C6C600BC8C2E /* CacheCollection */,
 				1AC51874283E302700D0E658 /* HomeDetail */,
 				1AC51862283B9F1500D0E658 /* Homes */,
@@ -608,6 +622,7 @@
 				1AC51868283BC6BF00D0E658 /* HomeInfoTableViewCell.swift in Sources */,
 				1A29B545283534B900F86F02 /* XibButtonViewCoordinator.swift in Sources */,
 				1A29B54028352F9900F86F02 /* ButtonViewController.swift in Sources */,
+				1A92337128759E7D00779F66 /* TabBarControlle.swift in Sources */,
 				1A29B5422835342E00F86F02 /* ButtonViewModal.swift in Sources */,
 				1A9420B8284E364900B39B15 /* CacheManager.swift in Sources */,
 				1AC51871283CCCB500D0E658 /* HomesViewModel.swift in Sources */,
@@ -647,6 +662,7 @@
 				1A5F4508284A151E00BC8C2E /* Flickr.swift in Sources */,
 				1A5F44FF2848F72900BC8C2E /* CollectionViewCell.swift in Sources */,
 				1A46D0B428465328005DBF7E /* DataManagerProtocol.swift in Sources */,
+				1A92337328759EF100779F66 /* TapBarViewModel.swift in Sources */,
 				1AC5187C283E36FE00D0E658 /* HomeDetailView.swift in Sources */,
 				1A0FAA28282FB53200D9F8F1 /* SceneDelegate.swift in Sources */,
 				1A9652DB286C73C60029FCB1 /* CacheDetailView.swift in Sources */,

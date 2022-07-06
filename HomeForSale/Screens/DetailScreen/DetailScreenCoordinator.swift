@@ -16,9 +16,13 @@ final class DetailScreenCoordinator: Coordinator {
     }
 
     func start() {
+        presentingController?.pushViewController(viewController(), animated: true)
+    }
+
+    func viewController() -> UIViewController {
         let viewModel = DetailScreenViewModel()
         let viewController = DetailScreenViewController()
         viewController.viewModel = viewModel
-        presentingController?.pushViewController(viewController, animated: true)
+        return viewController
     }
 }
