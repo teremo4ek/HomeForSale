@@ -17,10 +17,14 @@ final class XibButtonViewCoordinator: Coordinator {
     }
 
     func start() {
+        presentingController?.pushViewController(viewController(), animated: true)
+    }
+
+    func viewController() -> UIViewController {
         let viewModel = ButtonViewModel()
         let viewController = ButtonViewController()
         viewController.viewModel = viewModel
-        presentingController?.pushViewController(viewController, animated: true)
+        return viewController
     }
 
 }

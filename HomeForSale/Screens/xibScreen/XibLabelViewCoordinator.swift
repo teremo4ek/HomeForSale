@@ -17,10 +17,14 @@ final class XibLabelViewCoordinator: Coordinator {
     }
 
     func start() {
+        presentingController?.pushViewController(viewController(), animated: true)
+    }
+
+    func viewController() -> UIViewController {
         let viewModel = LabelViewModel()
         let viewController = LabelViewController()
         viewController.viewModel = viewModel
-        presentingController?.pushViewController(viewController, animated: true)
+        return viewController
     }
 
 }

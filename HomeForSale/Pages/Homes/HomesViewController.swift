@@ -24,6 +24,8 @@ class HomesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Homes"
+
         homesView.tableView.delegate = self
         homesView.tableView.dataSource = self
         homesView.tableView.register(HomeInfoTableViewCell.self, forCellReuseIdentifier: homeInfoCellReuseIdentifier)

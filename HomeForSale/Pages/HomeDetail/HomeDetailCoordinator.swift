@@ -16,10 +16,14 @@ final class HomeDetailCoordinator: Coordinator {
     }
 
     func start() {
+        presentingController?.pushViewController(viewController(), animated: true)
+    }
+
+    func viewController() -> UIViewController {
         let dataManager = DataManager.shared()
         let viewModel = HomeDetailViewModel(dataManager: dataManager)
         let viewController = HomeDetailViewController()
         viewController.viewModel = viewModel
-        presentingController?.pushViewController(viewController, animated: true)
+        return viewController
     }
 }
