@@ -68,6 +68,11 @@
 		1AC5187E283E619300D0E658 /* HomeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC5187D283E619300D0E658 /* HomeDetail.swift */; };
 		1AC51882283E770F00D0E658 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AC51884283E770F00D0E658 /* Localizable.strings */; };
 		1AC51887283E805A00D0E658 /* NetworkDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC51886283E805A00D0E658 /* NetworkDataDelegate.swift */; };
+		1AF84A4628770CBE0001C12F /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF84A4528770CBE0001C12F /* IntroViewController.swift */; };
+		1AF84A4828770D3C0001C12F /* PageIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF84A4728770D3C0001C12F /* PageIntroViewController.swift */; };
+		1AF84A4A28770D9B0001C12F /* IntroPageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF84A4928770D9B0001C12F /* IntroPageHelper.swift */; };
+		1AF84A4C287711440001C12F /* PageIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF84A4B287711440001C12F /* PageIntroView.swift */; };
+		1AF84A4E28772D990001C12F /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF84A4D28772D990001C12F /* IntroViewModel.swift */; };
 		B9205719B341FF26FC938E01 /* Pods_HomeForSale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +148,11 @@
 		1AC51883283E770F00D0E658 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1AC51885283E771100D0E658 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1AC51886283E805A00D0E658 /* NetworkDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataDelegate.swift; sourceTree = "<group>"; };
+		1AF84A4528770CBE0001C12F /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		1AF84A4728770D3C0001C12F /* PageIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIntroViewController.swift; sourceTree = "<group>"; };
+		1AF84A4928770D9B0001C12F /* IntroPageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageHelper.swift; sourceTree = "<group>"; };
+		1AF84A4B287711440001C12F /* PageIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIntroView.swift; sourceTree = "<group>"; };
+		1AF84A4D28772D990001C12F /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		33DEB3ED0A44EB75379B4D7F /* Pods-HomeForSale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.debug.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5289FB761AB63491B44A4C /* Pods_HomeForSale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeForSale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C186C772F6EC67ED24813C1C /* Pods-HomeForSale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeForSale.release.xcconfig"; path = "Target Support Files/Pods-HomeForSale/Pods-HomeForSale.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +223,7 @@
 				1AC5187D283E619300D0E658 /* HomeDetail.swift */,
 				1A0FAA56283262F100D9F8F1 /* TypeCell.swift */,
 				1A29B5372833D33100F86F02 /* Constants.swift */,
+				1AF84A4928770D9B0001C12F /* IntroPageHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,6 +408,7 @@
 		1AC5185E283B950C00D0E658 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				1AF84A442877064E0001C12F /* Intro */,
 				1A92336F28759E0900779F66 /* TapBar */,
 				1A5F44F52848C6C600BC8C2E /* CacheCollection */,
 				1AC51874283E302700D0E658 /* HomeDetail */,
@@ -446,6 +458,17 @@
 				1AC5187B283E36FE00D0E658 /* HomeDetailView.swift */,
 			);
 			path = HomeDetail;
+			sourceTree = "<group>";
+		};
+		1AF84A442877064E0001C12F /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				1AF84A4528770CBE0001C12F /* IntroViewController.swift */,
+				1AF84A4D28772D990001C12F /* IntroViewModel.swift */,
+				1AF84A4728770D3C0001C12F /* PageIntroViewController.swift */,
+				1AF84A4B287711440001C12F /* PageIntroView.swift */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		4E139D7349493283288853F0 /* Frameworks */ = {
@@ -633,6 +656,7 @@
 				1A9652DD286C753D0029FCB1 /* CacheDetailViewController.swift in Sources */,
 				1AC51873283CCE7700D0E658 /* HomeInfoCellViewModel.swift in Sources */,
 				1AC5187A283E351100D0E658 /* HomeDetailViewController.swift in Sources */,
+				1AF84A4A28770D9B0001C12F /* IntroPageHelper.swift in Sources */,
 				1A5F44F72848C71600BC8C2E /* CacheCollectionCoordinator.swift in Sources */,
 				1A46D0B2284652AB005DBF7E /* LocalDataManager.swift in Sources */,
 				1A29B53A2835063900F86F02 /* HomeCell.swift in Sources */,
@@ -640,9 +664,11 @@
 				1AC51887283E805A00D0E658 /* NetworkDataDelegate.swift in Sources */,
 				1AB31B13283B78F00027C338 /* MainController.swift in Sources */,
 				1A5F44FB2848C7BF00BC8C2E /* CacheCollectionView.swift in Sources */,
+				1AF84A4E28772D990001C12F /* IntroViewModel.swift in Sources */,
 				1A5F45012848F75D00BC8C2E /* CollectionCellViewModel.swift in Sources */,
 				1AC51878283E34DA00D0E658 /* HomeDetailViewModel.swift in Sources */,
 				1A5F44FD2848C81500BC8C2E /* CacheCollectionViewController.swift in Sources */,
+				1AF84A4C287711440001C12F /* PageIntroView.swift in Sources */,
 				1A29B55028363BC500F86F02 /* LabelViewController.swift in Sources */,
 				1AC51861283B956C00D0E658 /* MainView.swift in Sources */,
 				1A0FAA3D282FE0C200D9F8F1 /* HomeAPI.swift in Sources */,
@@ -661,6 +687,8 @@
 				1A5F44F92848C7A900BC8C2E /* CacheCollectionViewModel.swift in Sources */,
 				1A5F4508284A151E00BC8C2E /* Flickr.swift in Sources */,
 				1A5F44FF2848F72900BC8C2E /* CollectionViewCell.swift in Sources */,
+				1AF84A4628770CBE0001C12F /* IntroViewController.swift in Sources */,
+				1AF84A4828770D3C0001C12F /* PageIntroViewController.swift in Sources */,
 				1A46D0B428465328005DBF7E /* DataManagerProtocol.swift in Sources */,
 				1A92337328759EF100779F66 /* TapBarViewModel.swift in Sources */,
 				1AC5187C283E36FE00D0E658 /* HomeDetailView.swift in Sources */,
