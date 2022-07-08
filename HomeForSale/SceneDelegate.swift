@@ -17,10 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        let viewController = TabBarControlle()
-        let navigationController = UINavigationController(rootViewController: viewController)
+        if SettingsApp.isOrdinaryStart() {
+            let viewController = TabBarController()
+            let navigationController = UINavigationController(rootViewController: viewController)
+            window?.rootViewController = navigationController
+        } else {
+            SettingsApp.setOrdinaryStart()
+            let viewController = IntroViewController()
+            let navigationController = UINavigationController(rootViewController: viewController)
+            window?.rootViewController = navigationController
+        }
 
-        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 
