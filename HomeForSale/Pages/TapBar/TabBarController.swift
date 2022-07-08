@@ -1,5 +1,5 @@
 //
-//  TabBarControlle.swift
+//  TabBarController.swift
 //  HomeForSale
 //
 //  Created by Yury Bely on 06.07.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarControlle: UITabBarController {
+class TabBarController: UITabBarController {
 
     private let viewModel: TapBarViewModel = TapBarViewModel()
 

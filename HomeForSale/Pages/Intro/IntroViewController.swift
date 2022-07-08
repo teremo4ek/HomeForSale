@@ -72,7 +72,10 @@ class IntroViewController: UIPageViewController {
     }
 
     @objc func startIsTapped(sender: UIButton) {
-        print("START EVENT")
+        print("Start Btn Tapped")
+        navigationController?.pushViewController(TabBarController(), animated: true)
+        navigationController?.viewControllers.removeFirst()
+
     }
 }
 
